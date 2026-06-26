@@ -3,9 +3,1308 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <title>UC Merced Discord Communities | UCM Hub</title>
+    <meta
+      name="description"
+      content="Explore UC Merced Discord communities for STEM classes, campus maps, events, student life, and the broader Merced community."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://ucmercedhub.com/discord-community" />
+
+    <meta
+      property="og:title"
+      content="UC Merced Discord Communities | UCM Hub"
+    />
+    <meta
+      property="og:description"
+      content="Find UC Merced Discord communities for classes, campus maps, events, student life, and Merced community connection."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ucmercedhub.com/discord-community"
+    />
+    <meta property="og:site_name" content="UC Merced Hub" />
+    <meta
+      property="og:image"
+      content="https://ucmercedhub.com/social-preview.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="UC Merced Discord Communities | UCM Hub"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore UC Merced Discord servers for classes, maps, events, and community."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ucmercedhub.com/social-preview.png"
+    />
+
+    <meta name="theme-color" content="#ffffff" id="themeColorMeta" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "UC Merced Discord Communities",
+        "url": "https://ucmercedhub.com/discord-community",
+        "description": "A UCM Hub directory of UC Merced Discord communities for STEM classes, campus maps, events, student life, and the broader Merced community.",
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Featured UC Merced Discord Servers",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "STEM Majors",
+              "url": "https://discord.gg/KzbH9tgdC"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Map UC Merced",
+              "url": "https://discord.gg/uQtKghg2g"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Merced Community",
+              "url": "https://discord.gg/NVGjpuS5"
+            }
+          ]
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #f7f9fc;
+        --surface: #ffffff;
+        --surface-soft: #f0f5fb;
+        --text: #102033;
+        --muted: #617084;
+        --border: #dfe7f2;
+        --blue: #005eb8;
+        --blue-2: #1687ff;
+        --blue-soft: #e7f2ff;
+        --gold: #ffbf00;
+        --gold-2: #ffe38c;
+        --gold-soft: #fff5d6;
+        --green: #158a55;
+        --green-soft: #e8f8ef;
+        --shadow: 0 24px 80px rgba(16, 32, 51, 0.12);
+        --radius-xl: 36px;
+        --radius-lg: 26px;
+        --radius-md: 18px;
+      }
+
+      [data-theme="dark"] {
+        --bg: #07111f;
+        --surface: #0d1a2c;
+        --surface-soft: #121f34;
+        --text: #f7f9fc;
+        --muted: #aeb9c9;
+        --border: rgba(255, 255, 255, 0.14);
+        --blue: #68b2ff;
+        --blue-2: #4da3ff;
+        --blue-soft: rgba(104, 178, 255, 0.14);
+        --gold: #ffcc4d;
+        --gold-2: #ffe38c;
+        --gold-soft: rgba(255, 204, 77, 0.14);
+        --green: #6be0a2;
+        --green-soft: rgba(107, 224, 162, 0.14);
+        --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background:
+          radial-gradient(
+            circle at top left,
+            var(--blue-soft),
+            transparent 34rem
+          ),
+          radial-gradient(
+            circle at top right,
+            var(--gold-soft),
+            transparent 34rem
+          ),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in srgb, var(--surface) 88%, transparent);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 950;
+        letter-spacing: -0.04em;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        color: #07111f;
+        background: linear-gradient(135deg, var(--gold), var(--gold-2));
+        box-shadow: 0 12px 30px rgba(255, 191, 0, 0.25);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-links a,
+      .theme-toggle {
+        border: 1px solid transparent;
+        background: transparent;
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 9px 11px;
+        font-weight: 850;
+        cursor: pointer;
+      }
+
+      .nav-links a:hover,
+      .theme-toggle:hover {
+        color: var(--text);
+        background: var(--surface-soft);
+        border-color: var(--border);
+      }
+
+      .theme-toggle {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .hero {
+        min-height: calc(100vh - 72px);
+        display: grid;
+        align-items: center;
+        padding: 52px 0;
+      }
+
+      .showcase {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            var(--gold-soft),
+            transparent 240px
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            var(--blue-soft),
+            transparent 280px
+          ),
+          var(--surface);
+        box-shadow: var(--shadow);
+        min-height: 640px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .slide-copy {
+        position: relative;
+        z-index: 2;
+        padding: clamp(28px, 6vw, 62px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 8px;
+        color: var(--blue);
+        background: var(--blue-soft);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-weight: 900;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 6px var(--green-soft);
+      }
+
+      h1 {
+        font-size: clamp(2.65rem, 8vw, 6.6rem);
+        line-height: 0.9;
+        letter-spacing: -0.085em;
+        margin-bottom: 20px;
+      }
+
+      .slide-title {
+        font-size: clamp(2.2rem, 6vw, 5.2rem);
+        line-height: 0.92;
+        letter-spacing: -0.08em;
+        margin-bottom: 16px;
+      }
+
+      .slide-summary {
+        color: var(--muted);
+        font-size: 1.1rem;
+        max-width: 520px;
+        min-height: 58px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 13px 18px;
+        border-radius: 999px;
+        border: 0;
+        cursor: pointer;
+        font-weight: 900;
+        transition: transform 0.16s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        background: linear-gradient(135deg, var(--blue), var(--blue-2));
+        color: white;
+        box-shadow: 0 14px 30px rgba(0, 94, 184, 0.25);
+      }
+
+      .button-secondary {
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .button-gold {
+        background: linear-gradient(135deg, var(--gold), var(--gold-2));
+        color: #07111f;
+        box-shadow: 0 14px 30px rgba(255, 191, 0, 0.22);
+      }
+
+      .slide-visual {
+        position: relative;
+        display: grid;
+        place-items: center;
+        padding: 40px;
+      }
+
+      .visual-ring {
+        position: absolute;
+        width: min(440px, 80%);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px dashed color-mix(in srgb, var(--blue) 40%, transparent);
+        animation: spin 22s linear infinite;
+      }
+
+      .main-icon {
+        width: clamp(190px, 32vw, 310px);
+        height: clamp(190px, 32vw, 310px);
+        border-radius: 34%;
+        border: 1px solid var(--border);
+        background:
+          radial-gradient(circle at 25% 25%, var(--gold-soft), transparent 38%),
+          radial-gradient(circle at 75% 75%, var(--blue-soft), transparent 45%),
+          var(--surface);
+        box-shadow: 0 34px 90px rgba(16, 32, 51, 0.18);
+        overflow: hidden;
+        animation: float 5s ease-in-out infinite;
+        position: relative;
+        z-index: 2;
+      }
+
+      [data-theme="dark"] .main-icon {
+        box-shadow: 0 34px 90px rgba(0, 0, 0, 0.35);
+      }
+
+      .main-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .main-icon.missing::after {
+        content: attr(data-initials);
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: var(--blue);
+        font-weight: 950;
+        font-size: clamp(1.9rem, 6vw, 3.4rem);
+        letter-spacing: -0.06em;
+      }
+
+      .icon-strip {
+        position: absolute;
+        left: 50%;
+        bottom: 32px;
+        transform: translateX(-50%);
+        z-index: 4;
+        display: flex;
+        gap: 14px;
+        padding: 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: color-mix(in srgb, var(--surface) 86%, transparent);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 18px 50px rgba(16, 32, 51, 0.12);
+      }
+
+      .icon-button {
+        width: 58px;
+        height: 58px;
+        border-radius: 20px;
+        border: 2px solid transparent;
+        overflow: hidden;
+        cursor: pointer;
+        background: var(--surface-soft);
+        position: relative;
+        opacity: 0.58;
+        transition:
+          transform 0.18s ease,
+          opacity 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .icon-button:hover,
+      .icon-button.active {
+        transform: translateY(-4px);
+        opacity: 1;
+        border-color: var(--blue);
+      }
+
+      .icon-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .icon-button.missing::after {
+        content: attr(data-initials);
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: var(--blue);
+        font-weight: 950;
+        font-size: 0.75rem;
+      }
+
+      .slide-controls {
+        position: absolute;
+        left: clamp(24px, 5vw, 56px);
+        bottom: 34px;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .control-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        cursor: pointer;
+        font-weight: 950;
+      }
+
+      .slide-count {
+        color: var(--muted);
+        font-weight: 900;
+        font-size: 0.9rem;
+        min-width: 52px;
+        text-align: center;
+      }
+
+      .quick-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .quick-links a {
+        color: var(--blue);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 10px 12px;
+        font-weight: 850;
+        font-size: 0.93rem;
+      }
+
+      section {
+        padding: 50px 0;
+        scroll-margin-top: 96px;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(1.85rem, 4vw, 3.1rem);
+        line-height: 1;
+        letter-spacing: -0.065em;
+        margin-bottom: 8px;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        max-width: 560px;
+      }
+
+      .server-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .server-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .server-top {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .server-logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 21px;
+        overflow: hidden;
+        background: var(--surface-soft);
+        border: 1px solid var(--border);
+        flex: 0 0 auto;
+        position: relative;
+      }
+
+      .server-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .server-logo.missing::after {
+        content: attr(data-initials);
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: var(--blue);
+        font-weight: 950;
+        font-size: 0.8rem;
+      }
+
+      .server-card h3 {
+        font-size: 1.35rem;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+      }
+
+      .server-card .category {
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 800;
+        margin-top: 4px;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 14px 0;
+      }
+
+      .tag {
+        color: var(--blue);
+        background: var(--blue-soft);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 6px 9px;
+        font-size: 0.8rem;
+        font-weight: 850;
+      }
+
+      details {
+        border: 1px solid var(--border);
+        background: var(--surface-soft);
+        border-radius: 16px;
+        padding: 12px 13px;
+        margin-top: 10px;
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 900;
+        color: var(--text);
+      }
+
+      details p,
+      details li {
+        color: var(--muted);
+        font-size: 0.94rem;
+        margin-top: 8px;
+      }
+
+      details ul {
+        padding-left: 18px;
+        margin-top: 8px;
+      }
+
+      .card-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+
+      .value-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 18px;
+        box-shadow: 0 12px 34px rgba(16, 32, 51, 0.055);
+      }
+
+      .value-card h3 {
+        letter-spacing: -0.025em;
+        margin-bottom: 6px;
+      }
+
+      .value-card p {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .cta {
+        background:
+          radial-gradient(
+            circle at top right,
+            var(--gold-soft),
+            transparent 260px
+          ),
+          linear-gradient(135deg, var(--blue-soft), var(--surface));
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        padding: 34px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: center;
+        box-shadow: var(--shadow);
+      }
+
+      .cta h2 {
+        font-size: clamp(1.9rem, 4vw, 3.2rem);
+        line-height: 1;
+        letter-spacing: -0.065em;
+        margin-bottom: 8px;
+      }
+
+      .cta p {
+        color: var(--muted);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 34px 0 50px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: var(--blue);
+        font-weight: 850;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-1deg);
+        }
+        50% {
+          transform: translateY(-16px) rotate(1deg);
+        }
+      }
+
+      @keyframes spin {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .showcase {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .slide-visual {
+          min-height: 420px;
+          order: -1;
+        }
+
+        .slide-controls {
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 104px;
+        }
+
+        .server-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .values-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cta {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .container {
+          width: min(100% - 24px, 1120px);
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .brand span:last-child {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 28px 0;
+        }
+
+        .showcase {
+          border-radius: 28px;
+        }
+
+        .slide-copy {
+          padding: 24px;
+        }
+
+        .slide-visual {
+          min-height: 360px;
+          padding: 24px;
+        }
+
+        .main-icon {
+          width: 190px;
+          height: 190px;
+        }
+
+        .icon-strip {
+          bottom: 24px;
+        }
+
+        .slide-controls {
+          bottom: 96px;
+        }
+
+        .actions,
+        .card-actions {
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .quick-links {
+          display: none;
+        }
+
+        .section-head {
+          display: block;
+        }
+
+        .section-head p {
+          margin-top: 8px;
+        }
+
+        .values-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta {
+          border-radius: 26px;
+          padding: 22px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .main-icon,
+        .visual-ring {
+          animation: none;
+        }
+
+        .button,
+        .icon-button {
+          transition: none;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    hello world
+    <header>
+      <nav class="container nav">
+        <a class="brand" href="https://ucmercedhub.com/">
+          <span class="brand-mark">H</span>
+          <span>UC Merced Hub</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#servers">Servers</a>
+          <a href="#values">Values</a>
+          <a href="https://ucmercedhub.com/">Main Hub</a>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" type="button">
+          <span id="themeIcon">🌙</span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container hero">
+        <div class="showcase">
+          <div class="slide-copy">
+            <div class="eyebrow">UC Merced Discords</div>
+            <h1 id="slideTitle">STEM Majors</h1>
+            <p class="slide-summary" id="slideSummary">
+              Class channels for CSE, Engineering, Physics, Math, and STEM study
+              support.
+            </p>
+
+            <div class="actions">
+              <a
+                class="button button-primary"
+                id="slideJoin"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join Discord
+              </a>
+              <a class="button button-secondary" href="#servers">
+                View Details
+              </a>
+            </div>
+
+            <div class="quick-links">
+              <a href="https://ucmercedhub.com/">Main Hub →</a>
+              <a href="https://campusmap.ucmercedhub.com/">Campus Map →</a>
+              <a href="mailto:contact@ucmercedhub.com">Contact →</a>
+            </div>
+          </div>
+
+          <div class="slide-visual">
+            <div class="visual-ring" aria-hidden="true"></div>
+
+            <div class="main-icon" id="mainIcon" data-initials="STEM">
+              <img
+                id="mainIconImage"
+                src="./images/discord_server_image_1.png"
+                alt="STEM Majors Discord icon"
+              />
+            </div>
+
+            <div class="slide-controls">
+              <button
+                class="control-btn"
+                type="button"
+                id="prevSlide"
+                aria-label="Previous server"
+              >
+                ‹
+              </button>
+              <span class="slide-count" id="slideCount">1 / 3</span>
+              <button
+                class="control-btn"
+                type="button"
+                id="nextSlide"
+                aria-label="Next server"
+              >
+                ›
+              </button>
+            </div>
+
+            <div class="icon-strip" id="iconStrip"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container" id="servers">
+        <div class="section-head">
+          <div>
+            <h2>Servers</h2>
+            <p>
+              Quick cards. Open the sections only when you want more detail.
+            </p>
+          </div>
+        </div>
+
+        <div class="server-grid" id="serverGrid"></div>
+      </section>
+
+      <section class="container" id="values">
+        <div class="section-head">
+          <div>
+            <h2>Community values</h2>
+            <p>
+              Servers listed here should help students connect, learn, and
+              discover campus life.
+            </p>
+          </div>
+        </div>
+
+        <div class="values-grid">
+          <article class="value-card">
+            <h3>Discoverable</h3>
+            <p>Clear purpose, clear audience, easy to join.</p>
+          </article>
+
+          <article class="value-card">
+            <h3>Useful</h3>
+            <p>Classes, maps, events, resources, or local knowledge.</p>
+          </article>
+
+          <article class="value-card">
+            <h3>Student-first</h3>
+            <p>Built around helping Bobcats find people and information.</p>
+          </article>
+
+          <article class="value-card">
+            <h3>Respectful</h3>
+            <p>Welcoming spaces with reasonable community norms.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="cta">
+          <div>
+            <h2>Want a server listed?</h2>
+            <p>
+              Send over the server name, icon, invite link, and a short
+              description.
+            </p>
+          </div>
+
+          <a
+            class="button button-gold"
+            href="mailto:contact@ucmercedhub.com?subject=Discord%20Community%20Listing"
+          >
+            Contact UCM Hub
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <p>
+          © <span id="year"></span> UC Merced Hub. Not officially affiliated
+          with UC Merced.
+        </p>
+
+        <div class="footer-links">
+          <a href="https://ucmercedhub.com/">Main Hub</a>
+          <a href="https://campusmap.ucmercedhub.com/">Campus Map</a>
+          <a href="mailto:contact@ucmercedhub.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const servers = [
+        {
+          id: 1,
+          name: "STEM Majors",
+          category: "Academic",
+          image: "./images/discord_server_image_1.png",
+          initials: "STEM",
+          invite: "https://discord.gg/KzbH9tgdC",
+          short:
+            "Class channels for CSE, Engineering, Physics, Math, and STEM study support.",
+          tags: ["CSE", "Engineering", "Physics", "Math"],
+          about:
+            "A large UC Merced STEM Discord with class channels for courses across CSE, Engineering, Physics, Math, and related STEM areas.",
+          motivation:
+            "Give students a central place to find course updates, ask questions, meet classmates, and coordinate study sessions.",
+          channels: [
+            "CSE channels",
+            "Engineering channels",
+            "Physics channels",
+            "Math channels",
+            "Study sessions",
+            "Course resources",
+          ],
+        },
+        {
+          id: 2,
+          name: "Map UC Merced",
+          category: "Campus Life",
+          image: "./images/discord_server_image_2.png",
+          initials: "MAP",
+          invite: "https://discord.gg/uQtKghg2g",
+          short:
+            "Campus maps, events, activities, app updates, and UCM Hub community feedback.",
+          tags: ["Maps", "Events", "Campus", "UCM Hub"],
+          about:
+            "A UCM Hub-connected Discord for campus discovery through maps, events, activities, and student-facing tools.",
+          motivation:
+            "Help students understand what is happening around campus through interactive maps, mobile/web tools, and shared campus information.",
+          channels: [
+            "Map updates",
+            "Campus events",
+            "Student feedback",
+            "Campus discovery",
+            "Map projects",
+            "Announcements",
+          ],
+        },
+        {
+          id: 3,
+          name: "Merced Community",
+          category: "Local Community",
+          image: "./images/discord_server_image_3.png",
+          initials: "MERCED",
+          invite: "https://discord.gg/NVGjpuS5",
+          short:
+            "A broader Merced community space for local conversation, questions, and recommendations.",
+          tags: ["Merced", "Local", "Community", "General"],
+          about:
+            "A general Merced Discord for local discussion, recommendations, questions, events, and community connection.",
+          motivation:
+            "Help UC Merced students and locals connect with the broader Merced area beyond campus.",
+          channels: [
+            "General chat",
+            "Questions",
+            "Recommendations",
+            "Events",
+            "Housing",
+            "Introductions",
+          ],
+        },
+      ];
+
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+      const themeLabel = document.getElementById("themeLabel");
+      const themeColorMeta = document.getElementById("themeColorMeta");
+
+      const slideTitle = document.getElementById("slideTitle");
+      const slideSummary = document.getElementById("slideSummary");
+      const slideJoin = document.getElementById("slideJoin");
+      const slideCount = document.getElementById("slideCount");
+      const mainIcon = document.getElementById("mainIcon");
+      const mainIconImage = document.getElementById("mainIconImage");
+      const iconStrip = document.getElementById("iconStrip");
+      const serverGrid = document.getElementById("serverGrid");
+
+      let activeIndex = 0;
+      let autoSlideTimer;
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        localStorage.setItem("ucmHubDiscordTheme", theme);
+
+        const isDark = theme === "dark";
+        themeIcon.textContent = isDark ? "☀️" : "🌙";
+        themeLabel.textContent = isDark ? "Light" : "Dark";
+        themeColorMeta.setAttribute("content", isDark ? "#07111f" : "#ffffff");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        const current = root.getAttribute("data-theme") || "light";
+        applyTheme(current === "dark" ? "light" : "dark");
+      });
+
+      function setSlide(index) {
+        activeIndex = (index + servers.length) % servers.length;
+        const server = servers[activeIndex];
+
+        slideTitle.textContent = server.name;
+        slideSummary.textContent = server.short;
+        slideJoin.href = server.invite;
+        slideJoin.setAttribute("aria-label", `Join ${server.name} on Discord`);
+        slideCount.textContent = `${activeIndex + 1} / ${servers.length}`;
+
+        mainIcon.classList.remove("missing");
+        mainIcon.setAttribute("data-initials", server.initials);
+        mainIconImage.style.display = "block";
+        mainIconImage.src = server.image;
+        mainIconImage.alt = `${server.name} Discord icon`;
+
+        mainIconImage.onerror = () => {
+          mainIconImage.style.display = "none";
+          mainIcon.classList.add("missing");
+        };
+
+        document
+          .querySelectorAll(".icon-button")
+          .forEach((button, buttonIndex) => {
+            button.classList.toggle("active", buttonIndex === activeIndex);
+          });
+      }
+
+      function nextSlide() {
+        setSlide(activeIndex + 1);
+      }
+
+      function prevSlide() {
+        setSlide(activeIndex - 1);
+      }
+
+      function restartAutoSlide() {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = setInterval(nextSlide, 5500);
+      }
+
+      document.getElementById("nextSlide").addEventListener("click", () => {
+        nextSlide();
+        restartAutoSlide();
+      });
+
+      document.getElementById("prevSlide").addEventListener("click", () => {
+        prevSlide();
+        restartAutoSlide();
+      });
+
+      function renderIconStrip() {
+        iconStrip.innerHTML = servers
+          .map(
+            (server, index) => `
+        <button
+          class="icon-button ${index === activeIndex ? "active" : ""}"
+          type="button"
+          data-initials="${server.initials}"
+          aria-label="Show ${server.name}"
+          onclick="setSlideFromIcon(${index})"
+        >
+          <img
+            src="${server.image}"
+            alt="${server.name} icon"
+            onerror="this.style.display='none'; this.parentElement.classList.add('missing');"
+          />
+        </button>
+      `,
+          )
+          .join("");
+      }
+
+      function setSlideFromIcon(index) {
+        setSlide(index);
+        restartAutoSlide();
+      }
+
+      function renderCards() {
+        serverGrid.innerHTML = servers
+          .map(
+            (server) => `
+        <article class="server-card" id="server-${server.id}">
+          <div class="server-top">
+            <div class="server-logo" data-initials="${server.initials}">
+              <img
+                src="${server.image}"
+                alt="${server.name} icon"
+                onerror="this.style.display='none'; this.parentElement.classList.add('missing');"
+              />
+            </div>
+
+            <div>
+              <h3>${server.name}</h3>
+              <div class="category">${server.category}</div>
+            </div>
+          </div>
+
+          <div class="tag-row">
+            ${server.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+          </div>
+
+          <details>
+            <summary>About</summary>
+            <p>${server.about}</p>
+          </details>
+
+          <details>
+            <summary>Why join?</summary>
+            <p>${server.motivation}</p>
+          </details>
+
+          <details>
+            <summary>Channels</summary>
+            <ul>
+              ${server.channels.map((channel) => `<li>${channel}</li>`).join("")}
+            </ul>
+          </details>
+
+          <div class="card-actions">
+            <a
+              class="button button-primary"
+              href="${server.invite}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join Discord
+            </a>
+          </div>
+        </article>
+      `,
+          )
+          .join("");
+      }
+
+      applyTheme(
+        localStorage.getItem("ucmHubDiscordTheme") === "dark"
+          ? "dark"
+          : "light",
+      );
+      renderIconStrip();
+      renderCards();
+      setSlide(0);
+      restartAutoSlide();
+    </script>
   </body>
 </html>
