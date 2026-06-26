@@ -89,18 +89,27 @@
         --text: #102033;
         --muted: #617084;
         --border: #dfe7f2;
+
         --blue: #005eb8;
         --blue-2: #1687ff;
         --blue-soft: #e7f2ff;
+
         --gold: #ffbf00;
         --gold-2: #ffe38c;
         --gold-soft: #fff5d6;
+
         --green: #158a55;
         --green-soft: #e8f8ef;
+
+        --pink-soft: #fff0f6;
+        --purple-soft: #f1ecff;
+
+        --active-soft: var(--blue-soft);
+        --active-glow: rgba(0, 94, 184, 0.22);
+
         --shadow: 0 24px 80px rgba(16, 32, 51, 0.12);
         --radius-xl: 36px;
         --radius-lg: 26px;
-        --radius-md: 18px;
       }
 
       [data-theme="dark"] {
@@ -110,14 +119,21 @@
         --text: #f7f9fc;
         --muted: #aeb9c9;
         --border: rgba(255, 255, 255, 0.14);
+
         --blue: #68b2ff;
         --blue-2: #4da3ff;
         --blue-soft: rgba(104, 178, 255, 0.14);
+
         --gold: #ffcc4d;
         --gold-2: #ffe38c;
         --gold-soft: rgba(255, 204, 77, 0.14);
+
         --green: #6be0a2;
         --green-soft: rgba(107, 224, 162, 0.14);
+
+        --pink-soft: rgba(255, 120, 180, 0.13);
+        --purple-soft: rgba(150, 120, 255, 0.14);
+
         --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
       }
 
@@ -261,18 +277,19 @@
             transparent 240px
           ),
           radial-gradient(
-            circle at 80% 70%,
-            var(--blue-soft),
-            transparent 280px
+            circle at 78% 58%,
+            var(--active-soft),
+            transparent 340px
           ),
           var(--surface);
         box-shadow: var(--shadow);
         min-height: 640px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 0.92fr 1.08fr;
+        transition: background 0.25s ease;
       }
 
-      .slide-copy {
+      .hero-copy {
         position: relative;
         z-index: 2;
         padding: clamp(28px, 6vw, 62px);
@@ -306,24 +323,30 @@
       }
 
       h1 {
-        font-size: clamp(2.65rem, 8vw, 6.6rem);
+        font-size: clamp(2.6rem, 8vw, 6.2rem);
         line-height: 0.9;
         letter-spacing: -0.085em;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
-      .slide-title {
-        font-size: clamp(2.2rem, 6vw, 5.2rem);
-        line-height: 0.92;
-        letter-spacing: -0.08em;
-        margin-bottom: 16px;
-      }
-
-      .slide-summary {
+      .hero-summary {
         color: var(--muted);
-        font-size: 1.1rem;
+        font-size: 1.08rem;
         max-width: 520px;
-        min-height: 58px;
+      }
+
+      .active-name {
+        margin-top: 28px;
+        font-size: clamp(1.8rem, 4vw, 3.4rem);
+        line-height: 0.95;
+        letter-spacing: -0.07em;
+      }
+
+      .active-summary {
+        color: var(--muted);
+        max-width: 500px;
+        margin-top: 10px;
+        min-height: 52px;
       }
 
       .actions {
@@ -368,145 +391,6 @@
         box-shadow: 0 14px 30px rgba(255, 191, 0, 0.22);
       }
 
-      .slide-visual {
-        position: relative;
-        display: grid;
-        place-items: center;
-        padding: 40px;
-      }
-
-      .visual-ring {
-        position: absolute;
-        width: min(440px, 80%);
-        aspect-ratio: 1;
-        border-radius: 50%;
-        border: 1px dashed color-mix(in srgb, var(--blue) 40%, transparent);
-        animation: spin 22s linear infinite;
-      }
-
-      .main-icon {
-        width: clamp(190px, 32vw, 310px);
-        height: clamp(190px, 32vw, 310px);
-        border-radius: 34%;
-        border: 1px solid var(--border);
-        background:
-          radial-gradient(circle at 25% 25%, var(--gold-soft), transparent 38%),
-          radial-gradient(circle at 75% 75%, var(--blue-soft), transparent 45%),
-          var(--surface);
-        box-shadow: 0 34px 90px rgba(16, 32, 51, 0.18);
-        overflow: hidden;
-        animation: float 5s ease-in-out infinite;
-        position: relative;
-        z-index: 2;
-      }
-
-      [data-theme="dark"] .main-icon {
-        box-shadow: 0 34px 90px rgba(0, 0, 0, 0.35);
-      }
-
-      .main-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .main-icon.missing::after {
-        content: attr(data-initials);
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        color: var(--blue);
-        font-weight: 950;
-        font-size: clamp(1.9rem, 6vw, 3.4rem);
-        letter-spacing: -0.06em;
-      }
-
-      .icon-strip {
-        position: absolute;
-        left: 50%;
-        bottom: 32px;
-        transform: translateX(-50%);
-        z-index: 4;
-        display: flex;
-        gap: 14px;
-        padding: 12px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: color-mix(in srgb, var(--surface) 86%, transparent);
-        backdrop-filter: blur(18px);
-        box-shadow: 0 18px 50px rgba(16, 32, 51, 0.12);
-      }
-
-      .icon-button {
-        width: 58px;
-        height: 58px;
-        border-radius: 20px;
-        border: 2px solid transparent;
-        overflow: hidden;
-        cursor: pointer;
-        background: var(--surface-soft);
-        position: relative;
-        opacity: 0.58;
-        transition:
-          transform 0.18s ease,
-          opacity 0.18s ease,
-          border-color 0.18s ease;
-      }
-
-      .icon-button:hover,
-      .icon-button.active {
-        transform: translateY(-4px);
-        opacity: 1;
-        border-color: var(--blue);
-      }
-
-      .icon-button img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .icon-button.missing::after {
-        content: attr(data-initials);
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        color: var(--blue);
-        font-weight: 950;
-        font-size: 0.75rem;
-      }
-
-      .slide-controls {
-        position: absolute;
-        left: clamp(24px, 5vw, 56px);
-        bottom: 34px;
-        z-index: 5;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .control-btn {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        color: var(--text);
-        cursor: pointer;
-        font-weight: 950;
-      }
-
-      .slide-count {
-        color: var(--muted);
-        font-weight: 900;
-        font-size: 0.9rem;
-        min-width: 52px;
-        text-align: center;
-      }
-
       .quick-links {
         display: flex;
         flex-wrap: wrap;
@@ -522,6 +406,202 @@
         padding: 10px 12px;
         font-weight: 850;
         font-size: 0.93rem;
+      }
+
+      .bubble-system {
+        position: relative;
+        min-height: 640px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .orbit {
+        position: absolute;
+        border: 1px dashed color-mix(in srgb, var(--blue) 34%, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .orbit.one {
+        width: min(470px, 78%);
+        aspect-ratio: 1;
+        animation: slowSpin 26s linear infinite;
+      }
+
+      .orbit.two {
+        width: min(330px, 56%);
+        aspect-ratio: 1;
+        animation: slowSpinReverse 22s linear infinite;
+      }
+
+      .orbit.three {
+        width: min(560px, 88%);
+        aspect-ratio: 1;
+        animation: slowSpin 34s linear infinite;
+        opacity: 0.55;
+      }
+
+      .bubble-node {
+        position: absolute;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition:
+          transform 0.22s ease,
+          filter 0.22s ease,
+          opacity 0.22s ease;
+      }
+
+      .bubble-node:hover {
+        transform: translate(var(--x), var(--y)) scale(1.08);
+        filter: saturate(1.06);
+      }
+
+      .bubble-node.active {
+        transform: translate(0, 0) scale(1);
+        z-index: 5;
+      }
+
+      .bubble-node:not(.active) {
+        opacity: 0.72;
+        z-index: 3;
+      }
+
+      .bubble-node[data-position="left"] {
+        --x: -210px;
+        --y: 78px;
+        transform: translate(var(--x), var(--y)) scale(0.58);
+      }
+
+      .bubble-node[data-position="right"] {
+        --x: 210px;
+        --y: -92px;
+        transform: translate(var(--x), var(--y)) scale(0.58);
+      }
+
+      .bubble-node[data-position="bottom"] {
+        --x: 118px;
+        --y: 188px;
+        transform: translate(var(--x), var(--y)) scale(0.48);
+      }
+
+      .bubble-node[data-position="top"] {
+        --x: -120px;
+        --y: -190px;
+        transform: translate(var(--x), var(--y)) scale(0.48);
+      }
+
+      .bubble-shell {
+        position: relative;
+        width: 178px;
+        height: 178px;
+        border-radius: 38%;
+        padding: 8px;
+        background:
+          radial-gradient(
+            circle at 30% 24%,
+            rgba(255, 255, 255, 0.8),
+            transparent 34%
+          ),
+          linear-gradient(135deg, var(--active-soft), var(--surface));
+        border: 1px solid var(--border);
+        box-shadow: 0 26px 70px rgba(16, 32, 51, 0.15);
+        overflow: hidden;
+        animation: floatBubble 5s ease-in-out infinite;
+      }
+
+      [data-theme="dark"] .bubble-shell {
+        box-shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
+      }
+
+      .bubble-node.active .bubble-shell {
+        width: clamp(220px, 28vw, 330px);
+        height: clamp(220px, 28vw, 330px);
+        box-shadow:
+          0 36px 100px var(--active-glow),
+          0 26px 70px rgba(16, 32, 51, 0.16);
+      }
+
+      .bubble-node:nth-child(3) .bubble-shell {
+        animation-delay: -1.3s;
+      }
+
+      .bubble-node:nth-child(4) .bubble-shell {
+        animation-delay: -2.2s;
+      }
+
+      .bubble-shell img {
+        width: 100%;
+        height: 100%;
+        border-radius: 34%;
+        object-fit: cover;
+        background: var(--surface-soft);
+      }
+
+      .bubble-shell.missing::after {
+        content: attr(data-initials);
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: var(--blue);
+        font-weight: 950;
+        font-size: clamp(1.4rem, 4vw, 3rem);
+        letter-spacing: -0.06em;
+      }
+
+      .bubble-label {
+        position: absolute;
+        left: 50%;
+        bottom: -42px;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        background: color-mix(in srgb, var(--surface) 90%, transparent);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 11px;
+        color: var(--muted);
+        font-weight: 900;
+        font-size: 0.84rem;
+        backdrop-filter: blur(14px);
+      }
+
+      .bubble-node.active .bubble-label {
+        color: var(--text);
+      }
+
+      @keyframes floatBubble {
+        0%,
+        100% {
+          translate: 0 0;
+        }
+
+        50% {
+          translate: 0 -13px;
+        }
+      }
+
+      @keyframes slowSpin {
+        from {
+          rotate: 0deg;
+        }
+
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      @keyframes slowSpinReverse {
+        from {
+          rotate: 360deg;
+        }
+
+        to {
+          rotate: 0deg;
+        }
       }
 
       section {
@@ -556,7 +636,13 @@
       }
 
       .server-card {
-        background: var(--surface);
+        background:
+          radial-gradient(
+            circle at top right,
+            var(--card-soft),
+            transparent 230px
+          ),
+          var(--surface);
         border: 1px solid var(--border);
         border-radius: 30px;
         padding: 20px;
@@ -630,7 +716,7 @@
 
       details {
         border: 1px solid var(--border);
-        background: var(--surface-soft);
+        background: color-mix(in srgb, var(--surface-soft) 88%, transparent);
         border-radius: 16px;
         padding: 12px 13px;
         margin-top: 10px;
@@ -739,40 +825,15 @@
         font-weight: 850;
       }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0) rotate(-1deg);
-        }
-        50% {
-          transform: translateY(-16px) rotate(1deg);
-        }
-      }
-
-      @keyframes spin {
-        from {
-          rotate: 0deg;
-        }
-        to {
-          rotate: 360deg;
-        }
-      }
-
       @media (max-width: 980px) {
         .showcase {
           grid-template-columns: 1fr;
           min-height: auto;
         }
 
-        .slide-visual {
-          min-height: 420px;
+        .bubble-system {
+          min-height: 500px;
           order: -1;
-        }
-
-        .slide-controls {
-          left: 50%;
-          transform: translateX(-50%);
-          bottom: 104px;
         }
 
         .server-grid {
@@ -810,26 +871,44 @@
           border-radius: 28px;
         }
 
-        .slide-copy {
+        .hero-copy {
           padding: 24px;
         }
 
-        .slide-visual {
-          min-height: 360px;
-          padding: 24px;
+        .bubble-system {
+          min-height: 420px;
         }
 
-        .main-icon {
+        .bubble-node.active .bubble-shell {
           width: 190px;
           height: 190px;
         }
 
-        .icon-strip {
-          bottom: 24px;
+        .bubble-shell {
+          width: 150px;
+          height: 150px;
         }
 
-        .slide-controls {
-          bottom: 96px;
+        .bubble-node[data-position="left"] {
+          --x: -118px;
+          --y: 78px;
+          transform: translate(var(--x), var(--y)) scale(0.52);
+        }
+
+        .bubble-node[data-position="right"] {
+          --x: 118px;
+          --y: -68px;
+          transform: translate(var(--x), var(--y)) scale(0.52);
+        }
+
+        .bubble-node[data-position="bottom"] {
+          --x: 80px;
+          --y: 145px;
+          transform: translate(var(--x), var(--y)) scale(0.45);
+        }
+
+        .bubble-label {
+          display: none;
         }
 
         .actions,
@@ -868,13 +947,13 @@
           scroll-behavior: auto;
         }
 
-        .main-icon,
-        .visual-ring {
+        .bubble-shell,
+        .orbit {
           animation: none;
         }
 
         .button,
-        .icon-button {
+        .bubble-node {
           transition: none;
         }
       }
@@ -904,11 +983,19 @@
 
     <main>
       <section class="container hero">
-        <div class="showcase">
-          <div class="slide-copy">
+        <div class="showcase" id="showcase">
+          <div class="hero-copy">
             <div class="eyebrow">UC Merced Discords</div>
-            <h1 id="slideTitle">STEM Majors</h1>
-            <p class="slide-summary" id="slideSummary">
+
+            <h1>Find your campus circle.</h1>
+
+            <p class="hero-summary">
+              A small directory of Discord communities for classes, maps,
+              events, local life, and Bobcat connection.
+            </p>
+
+            <h2 class="active-name" id="activeName">STEM Majors</h2>
+            <p class="active-summary" id="activeSummary">
               Class channels for CSE, Engineering, Physics, Math, and STEM study
               support.
             </p>
@@ -916,7 +1003,7 @@
             <div class="actions">
               <a
                 class="button button-primary"
-                id="slideJoin"
+                id="activeJoin"
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -935,38 +1022,14 @@
             </div>
           </div>
 
-          <div class="slide-visual">
-            <div class="visual-ring" aria-hidden="true"></div>
-
-            <div class="main-icon" id="mainIcon" data-initials="STEM">
-              <img
-                id="mainIconImage"
-                src="./images/discord_server_image_1.png"
-                alt="STEM Majors Discord icon"
-              />
-            </div>
-
-            <div class="slide-controls">
-              <button
-                class="control-btn"
-                type="button"
-                id="prevSlide"
-                aria-label="Previous server"
-              >
-                ‹
-              </button>
-              <span class="slide-count" id="slideCount">1 / 3</span>
-              <button
-                class="control-btn"
-                type="button"
-                id="nextSlide"
-                aria-label="Next server"
-              >
-                ›
-              </button>
-            </div>
-
-            <div class="icon-strip" id="iconStrip"></div>
+          <div
+            class="bubble-system"
+            id="bubbleSystem"
+            aria-label="Discord server bubble graph"
+          >
+            <div class="orbit one"></div>
+            <div class="orbit two"></div>
+            <div class="orbit three"></div>
           </div>
         </div>
       </section>
@@ -975,9 +1038,7 @@
         <div class="section-head">
           <div>
             <h2>Servers</h2>
-            <p>
-              Quick cards. Open the sections only when you want more detail.
-            </p>
+            <p>About is open by default. Extra details stay tucked away.</p>
           </div>
         </div>
 
@@ -1065,10 +1126,12 @@
           short:
             "Class channels for CSE, Engineering, Physics, Math, and STEM study support.",
           tags: ["CSE", "Engineering", "Physics", "Math"],
+          accent: "var(--blue-soft)",
+          glow: "rgba(0, 94, 184, 0.24)",
           about:
-            "A large UC Merced STEM Discord with class channels for courses across CSE, Engineering, Physics, Math, and related STEM areas.",
+            "A large UC Merced STEM Discord with class channels for CSE, Engineering, Physics, Math, and related STEM areas.",
           motivation:
-            "Give students a central place to find course updates, ask questions, meet classmates, and coordinate study sessions.",
+            "A central place to find course updates, ask questions, meet classmates, and coordinate study sessions.",
           channels: [
             "CSE channels",
             "Engineering channels",
@@ -1088,6 +1151,8 @@
           short:
             "Campus maps, events, activities, app updates, and UCM Hub community feedback.",
           tags: ["Maps", "Events", "Campus", "UCM Hub"],
+          accent: "var(--gold-soft)",
+          glow: "rgba(255, 191, 0, 0.26)",
           about:
             "A UCM Hub-connected Discord for campus discovery through maps, events, activities, and student-facing tools.",
           motivation:
@@ -1111,6 +1176,8 @@
           short:
             "A broader Merced community space for local conversation, questions, and recommendations.",
           tags: ["Merced", "Local", "Community", "General"],
+          accent: "var(--purple-soft)",
+          glow: "rgba(120, 90, 255, 0.22)",
           about:
             "A general Merced Discord for local discussion, recommendations, questions, events, and community connection.",
           motivation:
@@ -1132,17 +1199,14 @@
       const themeLabel = document.getElementById("themeLabel");
       const themeColorMeta = document.getElementById("themeColorMeta");
 
-      const slideTitle = document.getElementById("slideTitle");
-      const slideSummary = document.getElementById("slideSummary");
-      const slideJoin = document.getElementById("slideJoin");
-      const slideCount = document.getElementById("slideCount");
-      const mainIcon = document.getElementById("mainIcon");
-      const mainIconImage = document.getElementById("mainIconImage");
-      const iconStrip = document.getElementById("iconStrip");
+      const showcase = document.getElementById("showcase");
+      const bubbleSystem = document.getElementById("bubbleSystem");
+      const activeName = document.getElementById("activeName");
+      const activeSummary = document.getElementById("activeSummary");
+      const activeJoin = document.getElementById("activeJoin");
       const serverGrid = document.getElementById("serverGrid");
 
       let activeIndex = 0;
-      let autoSlideTimer;
 
       document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -1161,95 +1225,76 @@
         applyTheme(current === "dark" ? "light" : "dark");
       });
 
-      function setSlide(index) {
-        activeIndex = (index + servers.length) % servers.length;
+      function handleImageError(imageElement) {
+        imageElement.style.display = "none";
+        imageElement.parentElement.classList.add("missing");
+      }
+
+      function getBubblePosition(index) {
+        if (index === activeIndex) return "center";
+
+        const positions = ["left", "right", "bottom", "top"];
+        const shifted = (index - activeIndex + servers.length) % servers.length;
+
+        return positions[shifted - 1] || "bottom";
+      }
+
+      function setActiveServer(index) {
+        activeIndex = index;
+
         const server = servers[activeIndex];
 
-        slideTitle.textContent = server.name;
-        slideSummary.textContent = server.short;
-        slideJoin.href = server.invite;
-        slideJoin.setAttribute("aria-label", `Join ${server.name} on Discord`);
-        slideCount.textContent = `${activeIndex + 1} / ${servers.length}`;
+        activeName.textContent = server.name;
+        activeSummary.textContent = server.short;
+        activeJoin.href = server.invite;
+        activeJoin.setAttribute("aria-label", `Join ${server.name} on Discord`);
 
-        mainIcon.classList.remove("missing");
-        mainIcon.setAttribute("data-initials", server.initials);
-        mainIconImage.style.display = "block";
-        mainIconImage.src = server.image;
-        mainIconImage.alt = `${server.name} Discord icon`;
+        showcase.style.setProperty("--active-soft", server.accent);
+        showcase.style.setProperty("--active-glow", server.glow);
 
-        mainIconImage.onerror = () => {
-          mainIconImage.style.display = "none";
-          mainIcon.classList.add("missing");
-        };
-
-        document
-          .querySelectorAll(".icon-button")
-          .forEach((button, buttonIndex) => {
-            button.classList.toggle("active", buttonIndex === activeIndex);
-          });
+        renderBubbles();
       }
 
-      function nextSlide() {
-        setSlide(activeIndex + 1);
-      }
+      function renderBubbles() {
+        const existingBubbles = bubbleSystem.querySelectorAll(".bubble-node");
+        existingBubbles.forEach((node) => node.remove());
 
-      function prevSlide() {
-        setSlide(activeIndex - 1);
-      }
+        servers.forEach((server, index) => {
+          const position = getBubblePosition(index);
 
-      function restartAutoSlide() {
-        clearInterval(autoSlideTimer);
-        autoSlideTimer = setInterval(nextSlide, 5500);
-      }
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = `bubble-node ${index === activeIndex ? "active" : ""}`;
+          button.dataset.position = position;
+          button.setAttribute("aria-label", `Select ${server.name}`);
+          button.addEventListener("click", () => setActiveServer(index));
 
-      document.getElementById("nextSlide").addEventListener("click", () => {
-        nextSlide();
-        restartAutoSlide();
-      });
+          button.innerHTML = `
+          <div class="bubble-shell" data-initials="${server.initials}">
+            <img
+              src="${server.image}"
+              alt="${server.name} Discord icon"
+              onerror="handleImageError(this)"
+            />
+          </div>
+          <span class="bubble-label">${server.name}</span>
+        `;
 
-      document.getElementById("prevSlide").addEventListener("click", () => {
-        prevSlide();
-        restartAutoSlide();
-      });
-
-      function renderIconStrip() {
-        iconStrip.innerHTML = servers
-          .map(
-            (server, index) => `
-        <button
-          class="icon-button ${index === activeIndex ? "active" : ""}"
-          type="button"
-          data-initials="${server.initials}"
-          aria-label="Show ${server.name}"
-          onclick="setSlideFromIcon(${index})"
-        >
-          <img
-            src="${server.image}"
-            alt="${server.name} icon"
-            onerror="this.style.display='none'; this.parentElement.classList.add('missing');"
-          />
-        </button>
-      `,
-          )
-          .join("");
-      }
-
-      function setSlideFromIcon(index) {
-        setSlide(index);
-        restartAutoSlide();
+          bubbleSystem.appendChild(button);
+        });
       }
 
       function renderCards() {
         serverGrid.innerHTML = servers
           .map(
             (server) => `
-        <article class="server-card" id="server-${server.id}">
+        <article class="server-card" style="--card-soft: ${server.accent}">
           <div class="server-top">
             <div class="server-logo" data-initials="${server.initials}">
               <img
                 src="${server.image}"
                 alt="${server.name} icon"
-                onerror="this.style.display='none'; this.parentElement.classList.add('missing');"
+                onerror="handleImageError(this)"
               />
             </div>
 
@@ -1263,7 +1308,7 @@
             ${server.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
           </div>
 
-          <details>
+          <details open>
             <summary>About</summary>
             <p>${server.about}</p>
           </details>
@@ -1301,10 +1346,8 @@
           ? "dark"
           : "light",
       );
-      renderIconStrip();
       renderCards();
-      setSlide(0);
-      restartAutoSlide();
+      setActiveServer(0);
     </script>
   </body>
 </html>
