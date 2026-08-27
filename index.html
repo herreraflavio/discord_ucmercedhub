@@ -5,41 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>UC Merced Discord Communities | UCM Hub</title>
+
     <meta
       name="description"
-      content="Explore UC Merced Discord communities for STEM classes, campus maps, events, student life, and the broader Merced community."
+      content="Explore UC Merced Discord communities for classes, majors, campus maps, events, student life, clubs, and the broader Bobcat community."
     />
+
     <meta name="robots" content="index, follow, max-image-preview:large" />
+
     <link rel="canonical" href="https://ucmercedhub.com/discord-community" />
 
+    <!-- UCM Hub favicon -->
+    <link
+      rel="icon"
+      href="https://ucmercedhub.com/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="shortcut icon" href="https://ucmercedhub.com/favicon.ico" />
+
+    <!-- Open Graph -->
     <meta
       property="og:title"
       content="UC Merced Discord Communities | UCM Hub"
     />
+
     <meta
       property="og:description"
-      content="Find UC Merced Discord communities for classes, campus maps, events, student life, and Merced community connection."
+      content="Find UC Merced Discord communities for classes, majors, campus maps, events, student life, and the wider Bobcat community."
     />
+
     <meta property="og:type" content="website" />
+
     <meta
       property="og:url"
       content="https://ucmercedhub.com/discord-community"
     />
+
     <meta property="og:site_name" content="UC Merced Hub" />
+
     <meta
       property="og:image"
       content="https://ucmercedhub.com/social-preview.png"
     />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+
     <meta
       name="twitter:title"
       content="UC Merced Discord Communities | UCM Hub"
     />
+
     <meta
       name="twitter:description"
-      content="Explore UC Merced Discord servers for classes, maps, events, and community."
+      content="Explore UC Merced Discord communities for classes, majors, maps, events, clubs, and student life."
     />
+
     <meta
       name="twitter:image"
       content="https://ucmercedhub.com/social-preview.png"
@@ -47,32 +68,39 @@
 
     <meta name="theme-color" content="#ffffff" id="themeColorMeta" />
 
+    <!-- Structured data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "UC Merced Discord Communities",
         "url": "https://ucmercedhub.com/discord-community",
-        "description": "A UCM Hub directory of UC Merced Discord communities for STEM classes, campus maps, events, student life, and the broader Merced community.",
+        "description": "A UCM Hub directory of UC Merced Discord communities for classes, majors, campus maps, events, student life, clubs, and the broader Bobcat community.",
         "mainEntity": {
           "@type": "ItemList",
-          "name": "Featured UC Merced Discord Servers",
+          "name": "UC Merced Discord Communities",
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
+              "name": "Central UCM",
+              "url": "https://discord.gg/JdRgayFtpQ"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
               "name": "STEM Majors",
               "url": "https://discord.gg/KzbH9tgdC"
             },
             {
               "@type": "ListItem",
-              "position": 2,
+              "position": 3,
               "name": "Map UC Merced",
               "url": "https://discord.gg/uQtKghg2g"
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 4,
               "name": "Merced Community",
               "url": "https://discord.gg/NVGjpuS5"
             }
@@ -108,6 +136,7 @@
         --active-glow: rgba(0, 94, 184, 0.22);
 
         --shadow: 0 24px 80px rgba(16, 32, 51, 0.12);
+
         --radius-xl: 36px;
         --radius-lg: 26px;
       }
@@ -118,6 +147,7 @@
         --surface-soft: #121f34;
         --text: #f7f9fc;
         --muted: #aeb9c9;
+
         --border: rgba(255, 255, 255, 0.14);
 
         --blue: #68b2ff;
@@ -149,6 +179,7 @@
 
       body {
         min-height: 100vh;
+
         font-family:
           Inter,
           ui-sans-serif,
@@ -157,6 +188,7 @@
           BlinkMacSystemFont,
           "Segoe UI",
           sans-serif;
+
         background:
           radial-gradient(
             circle at top left,
@@ -169,7 +201,9 @@
             transparent 34rem
           ),
           var(--bg);
+
         color: var(--text);
+
         line-height: 1.5;
       }
 
@@ -192,27 +226,38 @@
         margin: 0 auto;
       }
 
+      /* -----------------------------------
+         Navbar
+      ----------------------------------- */
+
       header {
         position: sticky;
         top: 0;
         z-index: 50;
+
         background: color-mix(in srgb, var(--surface) 88%, transparent);
+
         backdrop-filter: blur(18px);
+
         border-bottom: 1px solid var(--border);
       }
 
       .nav {
         min-height: 72px;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         gap: 18px;
       }
 
       .brand {
         display: flex;
         align-items: center;
-        gap: 12px;
+
+        gap: 11px;
+
         font-weight: 950;
         letter-spacing: -0.04em;
       }
@@ -220,56 +265,91 @@
       .brand-mark {
         width: 42px;
         height: 42px;
-        border-radius: 15px;
+
         display: grid;
         place-items: center;
-        color: #07111f;
-        background: linear-gradient(135deg, var(--gold), var(--gold-2));
-        box-shadow: 0 12px 30px rgba(255, 191, 0, 0.25);
+
+        overflow: hidden;
+
+        border-radius: 12px;
+
+        flex: 0 0 auto;
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
       }
 
       .nav-links {
         display: flex;
         align-items: center;
+
         gap: 10px;
       }
 
       .nav-links a,
       .theme-toggle {
         border: 1px solid transparent;
+
         background: transparent;
+
         color: var(--muted);
+
         border-radius: 999px;
+
         padding: 9px 11px;
+
         font-weight: 850;
+
         cursor: pointer;
       }
 
       .nav-links a:hover,
       .theme-toggle:hover {
         color: var(--text);
+
         background: var(--surface-soft);
+
         border-color: var(--border);
       }
 
       .theme-toggle {
         display: inline-flex;
-        gap: 8px;
         align-items: center;
+
+        gap: 8px;
       }
+
+      /* -----------------------------------
+         Hero
+      ----------------------------------- */
 
       .hero {
         min-height: calc(100vh - 72px);
+
         display: grid;
         align-items: center;
+
         padding: 52px 0;
       }
 
       .showcase {
         position: relative;
+
         overflow: hidden;
+
+        min-height: 640px;
+
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+
         border: 1px solid var(--border);
+
         border-radius: var(--radius-xl);
+
         background:
           radial-gradient(
             circle at 20% 20%,
@@ -282,17 +362,18 @@
             transparent 340px
           ),
           var(--surface);
+
         box-shadow: var(--shadow);
-        min-height: 640px;
-        display: grid;
-        grid-template-columns: 0.92fr 1.08fr;
+
         transition: background 0.25s ease;
       }
 
       .hero-copy {
         position: relative;
         z-index: 2;
+
         padding: clamp(28px, 6vw, 62px);
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -300,59 +381,83 @@
 
       .eyebrow {
         display: inline-flex;
-        width: fit-content;
         align-items: center;
+
+        width: fit-content;
+
         gap: 8px;
-        color: var(--blue);
-        background: var(--blue-soft);
-        border: 1px solid var(--border);
-        border-radius: 999px;
+
+        margin-bottom: 20px;
+
         padding: 8px 12px;
+
+        color: var(--blue);
+
+        background: var(--blue-soft);
+
+        border: 1px solid var(--border);
+
+        border-radius: 999px;
+
         font-weight: 900;
         font-size: 0.9rem;
-        margin-bottom: 20px;
       }
 
       .eyebrow::before {
         content: "";
+
         width: 8px;
         height: 8px;
+
         border-radius: 50%;
+
         background: var(--green);
+
         box-shadow: 0 0 0 6px var(--green-soft);
       }
 
       h1 {
+        margin-bottom: 18px;
+
         font-size: clamp(2.6rem, 8vw, 6.2rem);
         line-height: 0.9;
+
         letter-spacing: -0.085em;
-        margin-bottom: 18px;
       }
 
       .hero-summary {
         color: var(--muted);
+
         font-size: 1.08rem;
+
         max-width: 520px;
       }
 
       .active-name {
         margin-top: 28px;
+
         font-size: clamp(1.8rem, 4vw, 3.4rem);
         line-height: 0.95;
+
         letter-spacing: -0.07em;
       }
 
       .active-summary {
         color: var(--muted);
+
         max-width: 500px;
+
         margin-top: 10px;
+
         min-height: 52px;
       }
 
       .actions {
         display: flex;
         flex-wrap: wrap;
+
         gap: 12px;
+
         margin-top: 28px;
       }
 
@@ -360,13 +465,22 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+
         gap: 9px;
+
         padding: 13px 18px;
+
         border-radius: 999px;
+
         border: 0;
+
         cursor: pointer;
+
         font-weight: 900;
-        transition: transform 0.16s ease;
+
+        transition:
+          transform 0.16s ease,
+          box-shadow 0.16s ease;
       }
 
       .button:hover {
@@ -374,81 +488,113 @@
       }
 
       .button-primary {
+        color: #ffffff;
+
         background: linear-gradient(135deg, var(--blue), var(--blue-2));
-        color: white;
+
         box-shadow: 0 14px 30px rgba(0, 94, 184, 0.25);
       }
 
       .button-secondary {
-        background: var(--surface);
         color: var(--text);
+
+        background: var(--surface);
+
         border: 1px solid var(--border);
       }
 
       .button-gold {
-        background: linear-gradient(135deg, var(--gold), var(--gold-2));
         color: #07111f;
+
+        background: linear-gradient(135deg, var(--gold), var(--gold-2));
+
         box-shadow: 0 14px 30px rgba(255, 191, 0, 0.22);
       }
 
       .quick-links {
         display: flex;
         flex-wrap: wrap;
+
         gap: 10px;
+
         margin-top: 18px;
       }
 
       .quick-links a {
         color: var(--blue);
+
         background: var(--surface);
+
         border: 1px solid var(--border);
+
         border-radius: 999px;
+
         padding: 10px 12px;
+
         font-weight: 850;
         font-size: 0.93rem;
       }
 
+      /* -----------------------------------
+         Bubble graph
+      ----------------------------------- */
+
       .bubble-system {
         position: relative;
+
         min-height: 640px;
+
         display: grid;
         place-items: center;
+
         overflow: hidden;
       }
 
       .orbit {
         position: absolute;
+
         border: 1px dashed color-mix(in srgb, var(--blue) 34%, transparent);
+
         border-radius: 50%;
+
         pointer-events: none;
       }
 
       .orbit.one {
         width: min(470px, 78%);
         aspect-ratio: 1;
+
         animation: slowSpin 26s linear infinite;
       }
 
       .orbit.two {
         width: min(330px, 56%);
         aspect-ratio: 1;
+
         animation: slowSpinReverse 22s linear infinite;
       }
 
       .orbit.three {
         width: min(560px, 88%);
         aspect-ratio: 1;
-        animation: slowSpin 34s linear infinite;
+
         opacity: 0.55;
+
+        animation: slowSpin 34s linear infinite;
       }
 
       .bubble-node {
         position: absolute;
+
         border: 0;
+
         background: transparent;
+
         cursor: pointer;
+
         display: grid;
         place-items: center;
+
         transition:
           transform 0.22s ease,
           filter 0.22s ease,
@@ -457,49 +603,62 @@
 
       .bubble-node:hover {
         transform: translate(var(--x), var(--y)) scale(1.08);
+
         filter: saturate(1.06);
       }
 
       .bubble-node.active {
         transform: translate(0, 0) scale(1);
+
         z-index: 5;
       }
 
       .bubble-node:not(.active) {
         opacity: 0.72;
+
         z-index: 3;
       }
 
       .bubble-node[data-position="left"] {
         --x: -210px;
         --y: 78px;
+
         transform: translate(var(--x), var(--y)) scale(0.58);
       }
 
       .bubble-node[data-position="right"] {
         --x: 210px;
         --y: -92px;
+
         transform: translate(var(--x), var(--y)) scale(0.58);
       }
 
       .bubble-node[data-position="bottom"] {
         --x: 118px;
         --y: 188px;
+
         transform: translate(var(--x), var(--y)) scale(0.48);
       }
 
       .bubble-node[data-position="top"] {
         --x: -120px;
         --y: -190px;
+
         transform: translate(var(--x), var(--y)) scale(0.48);
       }
 
       .bubble-shell {
         position: relative;
+
         width: 178px;
         height: 178px;
-        border-radius: 38%;
+
         padding: 8px;
+
+        overflow: hidden;
+
+        border-radius: 38%;
+
         background:
           radial-gradient(
             circle at 30% 24%,
@@ -507,9 +666,11 @@
             transparent 34%
           ),
           linear-gradient(135deg, var(--active-soft), var(--surface));
+
         border: 1px solid var(--border);
+
         box-shadow: 0 26px 70px rgba(16, 32, 51, 0.15);
-        overflow: hidden;
+
         animation: floatBubble 5s ease-in-out infinite;
       }
 
@@ -520,6 +681,7 @@
       .bubble-node.active .bubble-shell {
         width: clamp(220px, 28vw, 330px);
         height: clamp(220px, 28vw, 330px);
+
         box-shadow:
           0 36px 100px var(--active-glow),
           0 26px 70px rgba(16, 32, 51, 0.16);
@@ -533,39 +695,66 @@
         animation-delay: -2.2s;
       }
 
+      .bubble-node:nth-child(5) .bubble-shell {
+        animation-delay: -3s;
+      }
+
+      .bubble-node:nth-child(6) .bubble-shell {
+        animation-delay: -3.7s;
+      }
+
       .bubble-shell img {
         width: 100%;
         height: 100%;
+
         border-radius: 34%;
+
         object-fit: cover;
+
         background: var(--surface-soft);
       }
 
       .bubble-shell.missing::after {
         content: attr(data-initials);
+
         position: absolute;
         inset: 0;
+
         display: grid;
         place-items: center;
+
         color: var(--blue);
+
         font-weight: 950;
+
         font-size: clamp(1.4rem, 4vw, 3rem);
+
         letter-spacing: -0.06em;
       }
 
       .bubble-label {
         position: absolute;
+
         left: 50%;
         bottom: -42px;
+
         transform: translateX(-50%);
+
         white-space: nowrap;
+
         background: color-mix(in srgb, var(--surface) 90%, transparent);
+
         border: 1px solid var(--border);
+
         border-radius: 999px;
+
         padding: 8px 11px;
+
         color: var(--muted);
+
         font-weight: 900;
         font-size: 0.84rem;
+
         backdrop-filter: blur(14px);
       }
 
@@ -604,8 +793,13 @@
         }
       }
 
+      /* -----------------------------------
+         Sections
+      ----------------------------------- */
+
       section {
         padding: 50px 0;
+
         scroll-margin-top: 96px;
       }
 
@@ -613,26 +807,38 @@
         display: flex;
         justify-content: space-between;
         align-items: end;
+
         gap: 24px;
+
         margin-bottom: 24px;
       }
 
       .section-head h2 {
+        margin-bottom: 8px;
+
         font-size: clamp(1.85rem, 4vw, 3.1rem);
         line-height: 1;
+
         letter-spacing: -0.065em;
-        margin-bottom: 8px;
       }
 
       .section-head p {
         color: var(--muted);
+
         max-width: 560px;
       }
 
+      /* -----------------------------------
+         Server cards
+      ----------------------------------- */
+
       .server-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
         gap: 18px;
+
+        align-items: start;
       }
 
       .server-card {
@@ -643,135 +849,281 @@
             transparent 230px
           ),
           var(--surface);
+
         border: 1px solid var(--border);
+
         border-radius: 30px;
+
         padding: 20px;
+
         box-shadow: var(--shadow);
       }
 
       .server-top {
         display: flex;
         align-items: center;
+
         gap: 14px;
+
         margin-bottom: 14px;
       }
 
       .server-logo {
+        position: relative;
+
         width: 64px;
         height: 64px;
-        border-radius: 21px;
+
         overflow: hidden;
+
+        border-radius: 21px;
+
         background: var(--surface-soft);
+
         border: 1px solid var(--border);
+
         flex: 0 0 auto;
-        position: relative;
       }
 
       .server-logo img {
         width: 100%;
         height: 100%;
+
         object-fit: cover;
       }
 
       .server-logo.missing::after {
         content: attr(data-initials);
+
         position: absolute;
         inset: 0;
+
         display: grid;
         place-items: center;
+
         color: var(--blue);
+
         font-weight: 950;
         font-size: 0.8rem;
       }
 
       .server-card h3 {
         font-size: 1.35rem;
+
         letter-spacing: -0.04em;
+
         line-height: 1.05;
       }
 
       .server-card .category {
+        margin-top: 4px;
+
         color: var(--muted);
+
         font-size: 0.9rem;
         font-weight: 800;
-        margin-top: 4px;
       }
 
       .tag-row {
         display: flex;
         flex-wrap: wrap;
+
         gap: 8px;
+
         margin: 14px 0;
       }
 
       .tag {
         color: var(--blue);
+
         background: var(--blue-soft);
+
         border: 1px solid var(--border);
+
         border-radius: 999px;
+
         padding: 6px 9px;
+
         font-size: 0.8rem;
         font-weight: 850;
       }
 
+      /* -----------------------------------
+         Details
+      ----------------------------------- */
+
       details {
-        border: 1px solid var(--border);
-        background: color-mix(in srgb, var(--surface-soft) 88%, transparent);
-        border-radius: 16px;
-        padding: 12px 13px;
         margin-top: 10px;
+
+        padding: 12px 13px;
+
+        border: 1px solid var(--border);
+
+        background: color-mix(in srgb, var(--surface-soft) 88%, transparent);
+
+        border-radius: 16px;
       }
 
       summary {
         cursor: pointer;
-        font-weight: 900;
+
         color: var(--text);
+
+        font-weight: 900;
+
+        user-select: none;
       }
 
       details p,
       details li {
-        color: var(--muted);
-        font-size: 0.94rem;
         margin-top: 8px;
+
+        color: var(--muted);
+
+        font-size: 0.94rem;
       }
 
       details ul {
         padding-left: 18px;
+
         margin-top: 8px;
       }
+
+      .channel-groups {
+        display: grid;
+
+        gap: 12px;
+
+        margin-top: 12px;
+      }
+
+      .channel-group {
+        padding-top: 12px;
+
+        border-top: 1px solid var(--border);
+      }
+
+      .channel-group:first-child {
+        padding-top: 0;
+
+        border-top: 0;
+      }
+
+      .channel-group-title {
+        display: block;
+
+        color: var(--text);
+
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .channel-group ul {
+        margin-top: 4px;
+      }
+
+      /* -----------------------------------
+         Rules
+      ----------------------------------- */
+
+      .rules-content {
+        margin-top: 12px;
+      }
+
+      .rule-block + .rule-block {
+        margin-top: 18px;
+
+        padding-top: 16px;
+
+        border-top: 1px solid var(--border);
+      }
+
+      .rule-block strong {
+        display: block;
+
+        color: var(--text);
+
+        line-height: 1.35;
+      }
+
+      .rule-block ul {
+        margin-top: 7px;
+
+        padding-left: 20px;
+      }
+
+      .rule-block li {
+        margin-top: 6px;
+      }
+
+      .policy-heading {
+        display: flex;
+        align-items: center;
+
+        gap: 7px;
+      }
+
+      /* -----------------------------------
+         Card actions
+      ----------------------------------- */
 
       .card-actions {
         display: flex;
         flex-direction: column;
+
         gap: 10px;
+
         margin-top: 16px;
       }
+
+      /* -----------------------------------
+         Values
+      ----------------------------------- */
 
       .values-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+
         gap: 14px;
       }
 
       .value-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 24px;
         padding: 18px;
+
+        background: var(--surface);
+
+        border: 1px solid var(--border);
+
+        border-radius: 24px;
+
         box-shadow: 0 12px 34px rgba(16, 32, 51, 0.055);
       }
 
       .value-card h3 {
-        letter-spacing: -0.025em;
         margin-bottom: 6px;
+
+        letter-spacing: -0.025em;
       }
 
       .value-card p {
         color: var(--muted);
+
         font-size: 0.94rem;
       }
 
+      /* -----------------------------------
+         CTA
+      ----------------------------------- */
+
       .cta {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+
+        gap: 20px;
+
+        padding: 34px;
+
         background:
           radial-gradient(
             circle at top right,
@@ -779,60 +1131,126 @@
             transparent 260px
           ),
           linear-gradient(135deg, var(--blue-soft), var(--surface));
+
         border: 1px solid var(--border);
+
         border-radius: var(--radius-xl);
-        padding: 34px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 20px;
-        align-items: center;
+
         box-shadow: var(--shadow);
       }
 
       .cta h2 {
+        margin-bottom: 8px;
+
         font-size: clamp(1.9rem, 4vw, 3.2rem);
         line-height: 1;
+
         letter-spacing: -0.065em;
-        margin-bottom: 8px;
       }
 
       .cta p {
         color: var(--muted);
       }
 
+      /* -----------------------------------
+         Footer
+      ----------------------------------- */
+
       footer {
+        margin-top: 36px;
+
+        padding: 38px 0 30px;
+
         border-top: 1px solid var(--border);
-        padding: 34px 0 50px;
+
         color: var(--muted);
+
         font-size: 0.92rem;
       }
 
-      .footer-grid {
+      .footer-content {
         display: flex;
         justify-content: space-between;
-        gap: 18px;
+        align-items: flex-start;
+
+        gap: 28px;
+
         flex-wrap: wrap;
+      }
+
+      .footer-brand {
+        max-width: 440px;
+      }
+
+      .footer-logo {
+        display: inline-flex;
+        align-items: center;
+
+        gap: 10px;
+
+        margin-bottom: 9px;
+
+        color: var(--text);
+      }
+
+      .footer-logo img {
+        width: 30px;
+        height: 30px;
+
+        border-radius: 8px;
+
+        object-fit: contain;
+      }
+
+      .footer-brand p {
+        color: var(--muted);
       }
 
       .footer-links {
         display: flex;
-        gap: 12px;
+        align-items: center;
+
+        gap: 16px;
+
         flex-wrap: wrap;
       }
 
       .footer-links a {
         color: var(--blue);
+
         font-weight: 850;
       }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom {
+        margin-top: 28px;
+
+        padding-top: 20px;
+
+        border-top: 1px solid var(--border);
+
+        color: var(--muted);
+
+        font-size: 0.86rem;
+      }
+
+      /* -----------------------------------
+         Responsive
+      ----------------------------------- */
 
       @media (max-width: 980px) {
         .showcase {
           grid-template-columns: 1fr;
+
           min-height: auto;
         }
 
         .bubble-system {
           min-height: 500px;
+
           order: -1;
         }
 
@@ -864,6 +1282,7 @@
 
         .hero {
           min-height: auto;
+
           padding: 28px 0;
         }
 
@@ -892,18 +1311,21 @@
         .bubble-node[data-position="left"] {
           --x: -118px;
           --y: 78px;
+
           transform: translate(var(--x), var(--y)) scale(0.52);
         }
 
         .bubble-node[data-position="right"] {
           --x: 118px;
           --y: -68px;
+
           transform: translate(var(--x), var(--y)) scale(0.52);
         }
 
         .bubble-node[data-position="bottom"] {
           --x: 80px;
           --y: 145px;
+
           transform: translate(var(--x), var(--y)) scale(0.45);
         }
 
@@ -937,8 +1359,17 @@
         }
 
         .cta {
-          border-radius: 26px;
           padding: 22px;
+
+          border-radius: 26px;
+        }
+
+        .footer-content {
+          display: block;
+        }
+
+        .footer-links {
+          margin-top: 22px;
         }
       }
 
@@ -961,10 +1392,25 @@
   </head>
 
   <body>
+    <!-- ================================
+         Navbar
+    ================================= -->
+
     <header>
       <nav class="container nav">
-        <a class="brand" href="https://ucmercedhub.com/">
-          <span class="brand-mark">H</span>
+        <a
+          class="brand"
+          href="https://ucmercedhub.com/"
+          aria-label="UC Merced Hub home"
+        >
+          <span class="brand-mark">
+            <img
+              src="https://ucmercedhub.com/favicon.ico"
+              alt=""
+              aria-hidden="true"
+            />
+          </span>
+
           <span>UC Merced Hub</span>
         </a>
 
@@ -974,7 +1420,12 @@
           <a href="https://ucmercedhub.com/">Main Hub</a>
         </div>
 
-        <button class="theme-toggle" id="themeToggle" type="button">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Toggle color theme"
+        >
           <span id="themeIcon">🌙</span>
           <span id="themeLabel">Dark</span>
         </button>
@@ -982,43 +1433,56 @@
     </header>
 
     <main>
+      <!-- ================================
+           Hero
+      ================================= -->
+
       <section class="container hero">
         <div class="showcase" id="showcase">
           <div class="hero-copy">
             <div class="eyebrow">UC Merced Discords</div>
 
-            <h1>Find your campus circle.</h1>
+            <h1>
+              Find your
+              <br />
+              campus circle.
+            </h1>
 
             <p class="hero-summary">
-              A small directory of Discord communities for classes, maps,
-              events, local life, and Bobcat connection.
+              Discover UC Merced Discord communities for classes, majors, maps,
+              events, student life, local connections, and the broader Bobcat
+              community.
             </p>
 
-            <h2 class="active-name" id="activeName">STEM Majors</h2>
+            <h2 class="active-name" id="activeName">Central UCM</h2>
+
             <p class="active-summary" id="activeSummary">
-              Class channels for CSE, Engineering, Physics, Math, and STEM study
-              support.
+              A general UC Merced community for campus conversation, help,
+              meetups, clubs, majors, gaming, and student life.
             </p>
 
             <div class="actions">
               <a
                 class="button button-primary"
                 id="activeJoin"
-                href="#"
+                href="https://discord.gg/JdRgayFtpQ"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Join Discord
               </a>
+
               <a class="button button-secondary" href="#servers">
                 View Details
               </a>
             </div>
 
             <div class="quick-links">
-              <a href="https://ucmercedhub.com/">Main Hub →</a>
-              <a href="https://campusmap.ucmercedhub.com/">Campus Map →</a>
-              <a href="mailto:contact@ucmercedhub.com">Contact →</a>
+              <a href="https://ucmercedhub.com/"> Main Hub → </a>
+
+              <a href="https://campusmap.ucmercedhub.com/"> Campus Map → </a>
+
+              <a href="mailto:contact@ucmercedhub.com"> Contact → </a>
             </div>
           </div>
 
@@ -1034,24 +1498,37 @@
         </div>
       </section>
 
+      <!-- ================================
+           Servers
+      ================================= -->
+
       <section class="container" id="servers">
         <div class="section-head">
           <div>
             <h2>Servers</h2>
-            <p>About is open by default. Extra details stay tucked away.</p>
+
+            <p>
+              Explore UC Merced communities for academics, campus life, local
+              connection, clubs, events, and student support.
+            </p>
           </div>
         </div>
 
         <div class="server-grid" id="serverGrid"></div>
       </section>
 
+      <!-- ================================
+           Values
+      ================================= -->
+
       <section class="container" id="values">
         <div class="section-head">
           <div>
             <h2>Community values</h2>
+
             <p>
-              Servers listed here should help students connect, learn, and
-              discover campus life.
+              Servers listed here should help students connect, learn, discover
+              campus life, and find communities where they feel welcome.
             </p>
           </div>
         </div>
@@ -1059,33 +1536,54 @@
         <div class="values-grid">
           <article class="value-card">
             <h3>Discoverable</h3>
-            <p>Clear purpose, clear audience, easy to join.</p>
+
+            <p>
+              Clear purpose, clear audience, and easy ways for students to get
+              involved.
+            </p>
           </article>
 
           <article class="value-card">
             <h3>Useful</h3>
-            <p>Classes, maps, events, resources, or local knowledge.</p>
+
+            <p>
+              Classes, maps, events, resources, clubs, help, or useful local
+              knowledge.
+            </p>
           </article>
 
           <article class="value-card">
             <h3>Student-first</h3>
-            <p>Built around helping Bobcats find people and information.</p>
+
+            <p>
+              Built around helping Bobcats find people, information, resources,
+              and opportunities.
+            </p>
           </article>
 
           <article class="value-card">
             <h3>Respectful</h3>
-            <p>Welcoming spaces with reasonable community norms.</p>
+
+            <p>
+              Welcoming spaces with reasonable community norms and thoughtful
+              moderation.
+            </p>
           </article>
         </div>
       </section>
+
+      <!-- ================================
+           Submission CTA
+      ================================= -->
 
       <section class="container">
         <div class="cta">
           <div>
             <h2>Want a server listed?</h2>
+
             <p>
-              Send over the server name, icon, invite link, and a short
-              description.
+              Send over the server name, icon, invite link, a short description,
+              and the communities it serves.
             </p>
           </div>
 
@@ -1099,145 +1597,435 @@
       </section>
     </main>
 
+    <!-- ================================
+         Footer
+    ================================= -->
+
     <footer>
-      <div class="container footer-grid">
-        <p>
-          © <span id="year"></span> UC Merced Hub. Not officially affiliated
-          with UC Merced.
-        </p>
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <a class="footer-logo" href="https://ucmercedhub.com/">
+            <img
+              src="https://ucmercedhub.com/favicon.ico"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <strong>UC Merced Hub</strong>
+          </a>
+
+          <p>
+            Independent student project · Not an official UC Merced service.
+          </p>
+        </div>
 
         <div class="footer-links">
-          <a href="https://ucmercedhub.com/">Main Hub</a>
-          <a href="https://campusmap.ucmercedhub.com/">Campus Map</a>
-          <a href="mailto:contact@ucmercedhub.com">Contact</a>
+          <a href="https://ucmercedhub.com/"> Hub </a>
+
+          <a href="https://campusmap.ucmercedhub.com/support/"> Support </a>
+
+          <a href="https://campusmap.ucmercedhub.com/privacy/"> Privacy </a>
+
+          <a href="mailto:contact@ucmercedhub.com"> Contact </a>
         </div>
+      </div>
+
+      <div class="container footer-bottom">
+        © <span id="year"></span> UC Merced Hub
       </div>
     </footer>
 
     <script>
+      /* ===================================
+         Server data
+      =================================== */
+
       const servers = [
         {
           id: 1,
-          name: "STEM Majors",
-          category: "Academic",
-          image: "./images/discord_server_image_1.png",
-          initials: "STEM",
-          invite: "https://discord.gg/KzbH9tgdC",
+
+          name: "Central UCM",
+
+          category: "Campus Community",
+
+          image:
+            "https://cdn.discordapp.com/icons/1502200043925671956/c481deb307d3f8eb4ca152149ecbc0dc.webp?size=160&quality=lossless",
+
+          initials: "UCM",
+
+          invite: "https://discord.gg/JdRgayFtpQ",
+
           short:
-            "Class channels for CSE, Engineering, Physics, Math, and STEM study support.",
-          tags: ["CSE", "Engineering", "Physics", "Math"],
-          accent: "var(--blue-soft)",
-          glow: "rgba(0, 94, 184, 0.24)",
+            "A general UC Merced community for campus conversation, help, meetups, clubs, majors, gaming, and student life.",
+
+          tags: ["Community", "Student Life", "Majors", "Meetups"],
+
+          accent: "var(--pink-soft)",
+
+          glow: "rgba(255, 120, 180, 0.22)",
+
           about:
-            "A large UC Merced STEM Discord with class channels for CSE, Engineering, Physics, Math, and related STEM areas.",
+            "A broad UC Merced community Discord for students to talk, ask for help, meet other Bobcats, share campus life, find clubs, and connect through major-specific and general channels.",
+
           motivation:
-            "A central place to find course updates, ask questions, meet classmates, and coordinate study sessions.",
-          channels: [
-            "CSE channels",
-            "Engineering channels",
-            "Physics channels",
-            "Math channels",
-            "Study sessions",
-            "Course resources",
+            "Central UCM provides a general-purpose campus community where students can find help, make connections, organize meetups, share photos, discuss majors, game together, and participate in everyday campus conversation.",
+
+          channelGroups: [
+            {
+              title: "Information",
+
+              channels: [
+                "#announcements",
+                "#help-channel",
+                "#tutorial",
+                "#roles",
+              ],
+            },
+
+            {
+              title: "General Text Channels",
+
+              channels: [
+                "#general",
+                "#daily-cats-n-dogs",
+                "#ucm-help",
+                "#photos-images",
+                "#gaming",
+                "#server-suggestions",
+                "#meetups",
+                "#introductions",
+                "#dorm-and-pay-food-pics",
+              ],
+            },
+
+            {
+              title: "Voice Channels",
+
+              channels: ["Lounge", "gaming", "study group / hw help"],
+            },
+
+            {
+              title: "Clubs",
+
+              channels: ["#club-or-event-advertisement"],
+            },
+
+            {
+              title: "School / Major Specific",
+
+              channels: [
+                "#business",
+                "#ssha",
+                "#engineering",
+                "#natural-sciences",
+              ],
+            },
           ],
+
+          rules: [
+            {
+              title: "No Harassment, Hate Speech, or Bigotry",
+
+              points: [
+                "Treat all members with respect. No harassment, witch-hunting, sexism, racism, or hate speech.",
+
+                "This server explicitly protects and welcomes the LGBTQIA+ community.",
+
+                "Homophobia, transphobia, deadnaming, or targeted political harassment will not be tolerated.",
+              ],
+            },
+
+            {
+              title: "No Severe Violence, Weapons, or Self-Harm",
+
+              points: [
+                "Keep real-world violence completely out of general chat channels.",
+
+                "Do not discuss, joke about, or glorify weapons, bombs, stabbings, or gang violence.",
+
+                "Sharing graphic images, gore, or discussing self-harm is strictly prohibited.",
+
+                "Serious issues that students, staff, or alumni have faced may still be discussed when handled seriously rather than as casual general-chat material.",
+              ],
+            },
+
+            {
+              title: "No Spam or Self-Promotion",
+
+              points: [
+                "Promotion may be allowed, but server staff want to vet it first and ensure it is appropriate.",
+
+                "No unauthorized server invites, advertisements, or promotional links.",
+
+                "Do not send unsolicited DMs to fellow server members. This is intended primarily to prevent unwanted messages rather than interfere with normal conversations between people who know each other.",
+              ],
+            },
+
+            {
+              title: "Help Keep the Vibe Safe",
+
+              points: [
+                "Let staff know immediately if you see rule-breaking content.",
+
+                "Report anything that makes you or others feel unsafe or unwelcome.",
+              ],
+            },
+          ],
+
+          moderation: {
+            title: "Infraction & Vibe-Check Policy",
+
+            points: [
+              "Vibe-Based Moderation — The server favors maintaining a relaxed, safe environment instead of immediately handing out permanent bans.",
+
+              "Step 1: Verbal Warning — If someone crosses a line, moderators give a direct warning in chat and ask them to pivot the topic.",
+
+              "Step 2: 1-Minute Timeout — Ignoring the warning or doubling down may result in a quick one-minute timeout.",
+
+              "Step 3: Escalation — Extreme violations such as targeted hate speech or explicit threats can bypass earlier steps and lead directly to kicks or permanent bans.",
+            ],
+          },
+
+          values: {
+            title: "The UC Merced Supremacy Clause",
+
+            points: [
+              "Be the Change — As the newest UC campus, students have an opportunity to help define what the community becomes.",
+
+              "Keep it Positive — Push for progress, support one another, and send a positive message to the wider UC system and beyond.",
+
+              "Bobcat Pride — Bring good energy, build real community, and help shape a Bobcat culture students can be proud of.",
+            ],
+          },
         },
+
         {
           id: 2,
-          name: "Map UC Merced",
-          category: "Campus Life",
-          image: "./images/discord_server_image_2.png",
-          initials: "MAP",
-          invite: "https://discord.gg/uQtKghg2g",
+
+          name: "STEM Majors",
+
+          category: "Academic",
+
+          image: "./images/discord_server_image_1.png",
+
+          initials: "STEM",
+
+          invite: "https://discord.gg/KzbH9tgdC",
+
           short:
-            "Campus maps, events, activities, app updates, and UCM Hub community feedback.",
-          tags: ["Maps", "Events", "Campus", "UCM Hub"],
-          accent: "var(--gold-soft)",
-          glow: "rgba(255, 191, 0, 0.26)",
+            "Class channels for CSE, Engineering, Physics, Math, and STEM study support.",
+
+          tags: ["CSE", "Engineering", "Physics", "Math"],
+
+          accent: "var(--blue-soft)",
+
+          glow: "rgba(0, 94, 184, 0.24)",
+
           about:
-            "A UCM Hub-connected Discord for campus discovery through maps, events, activities, and student-facing tools.",
+            "A large UC Merced STEM Discord with class channels for CSE, Engineering, Physics, Math, and related STEM areas.",
+
           motivation:
-            "Help students understand what is happening around campus through interactive maps, mobile/web tools, and shared campus information.",
-          channels: [
-            "Map updates",
-            "Campus events",
-            "Student feedback",
-            "Campus discovery",
-            "Map projects",
-            "Announcements",
+            "A central place to find course updates, ask questions, meet classmates, and coordinate study sessions.",
+
+          channelGroups: [
+            {
+              title: "Academic",
+
+              channels: [
+                "CSE channels",
+                "Engineering channels",
+                "Physics channels",
+                "Math channels",
+              ],
+            },
+
+            {
+              title: "Community",
+
+              channels: ["Study sessions", "Course resources"],
+            },
           ],
         },
+
         {
           id: 3,
+
+          name: "Map UC Merced",
+
+          category: "Campus Life",
+
+          image: "./images/discord_server_image_2.png",
+
+          initials: "MAP",
+
+          invite: "https://discord.gg/uQtKghg2g",
+
+          short:
+            "Campus maps, events, activities, app updates, and UCM Hub community feedback.",
+
+          tags: ["Maps", "Events", "Campus", "UCM Hub"],
+
+          accent: "var(--gold-soft)",
+
+          glow: "rgba(255, 191, 0, 0.26)",
+
+          about:
+            "A UCM Hub-connected Discord for campus discovery through maps, events, activities, and student-facing tools.",
+
+          motivation:
+            "Help students understand what is happening around campus through interactive maps, mobile and web tools, and shared campus information.",
+
+          channelGroups: [
+            {
+              title: "Campus",
+
+              channels: [
+                "Map updates",
+                "Campus events",
+                "Campus discovery",
+                "Announcements",
+              ],
+            },
+
+            {
+              title: "Projects",
+
+              channels: ["Student feedback", "Map projects"],
+            },
+          ],
+        },
+
+        {
+          id: 4,
+
           name: "Merced Community",
+
           category: "Local Community",
+
           image: "./images/discord_server_image_3.png",
+
           initials: "MERCED",
+
           invite: "https://discord.gg/NVGjpuS5",
+
           short:
             "A broader Merced community space for local conversation, questions, and recommendations.",
+
           tags: ["Merced", "Local", "Community", "General"],
+
           accent: "var(--purple-soft)",
+
           glow: "rgba(120, 90, 255, 0.22)",
+
           about:
             "A general Merced Discord for local discussion, recommendations, questions, events, and community connection.",
+
           motivation:
             "Help UC Merced students and locals connect with the broader Merced area beyond campus.",
-          channels: [
-            "General chat",
-            "Questions",
-            "Recommendations",
-            "Events",
-            "Housing",
-            "Introductions",
+
+          channelGroups: [
+            {
+              title: "Community",
+
+              channels: ["General chat", "Questions", "Introductions"],
+            },
+
+            {
+              title: "Local",
+
+              channels: ["Recommendations", "Events", "Housing"],
+            },
           ],
         },
       ];
 
+      /* ===================================
+         DOM references
+      =================================== */
+
       const root = document.documentElement;
+
       const themeToggle = document.getElementById("themeToggle");
+
       const themeIcon = document.getElementById("themeIcon");
+
       const themeLabel = document.getElementById("themeLabel");
+
       const themeColorMeta = document.getElementById("themeColorMeta");
 
       const showcase = document.getElementById("showcase");
+
       const bubbleSystem = document.getElementById("bubbleSystem");
+
       const activeName = document.getElementById("activeName");
+
       const activeSummary = document.getElementById("activeSummary");
+
       const activeJoin = document.getElementById("activeJoin");
+
       const serverGrid = document.getElementById("serverGrid");
+
+      /* ===================================
+         Initial state
+      =================================== */
 
       let activeIndex = 0;
 
       document.getElementById("year").textContent = new Date().getFullYear();
 
+      /* ===================================
+         Theme
+      =================================== */
+
       function applyTheme(theme) {
         root.setAttribute("data-theme", theme);
+
         localStorage.setItem("ucmHubDiscordTheme", theme);
 
         const isDark = theme === "dark";
+
         themeIcon.textContent = isDark ? "☀️" : "🌙";
+
         themeLabel.textContent = isDark ? "Light" : "Dark";
+
         themeColorMeta.setAttribute("content", isDark ? "#07111f" : "#ffffff");
       }
 
       themeToggle.addEventListener("click", () => {
         const current = root.getAttribute("data-theme") || "light";
+
         applyTheme(current === "dark" ? "light" : "dark");
       });
 
+      /* ===================================
+         Image fallback
+      =================================== */
+
       function handleImageError(imageElement) {
         imageElement.style.display = "none";
+
         imageElement.parentElement.classList.add("missing");
       }
 
+      /* ===================================
+         Bubble positioning
+      =================================== */
+
       function getBubblePosition(index) {
-        if (index === activeIndex) return "center";
+        if (index === activeIndex) {
+          return "center";
+        }
 
         const positions = ["left", "right", "bottom", "top"];
+
         const shifted = (index - activeIndex + servers.length) % servers.length;
 
         return positions[shifted - 1] || "bottom";
       }
+
+      /* ===================================
+         Set active server
+      =================================== */
 
       function setActiveServer(index) {
         activeIndex = index;
@@ -1245,108 +2033,285 @@
         const server = servers[activeIndex];
 
         activeName.textContent = server.name;
+
         activeSummary.textContent = server.short;
+
         activeJoin.href = server.invite;
+
         activeJoin.setAttribute("aria-label", `Join ${server.name} on Discord`);
 
         showcase.style.setProperty("--active-soft", server.accent);
+
         showcase.style.setProperty("--active-glow", server.glow);
 
         renderBubbles();
       }
 
+      /* ===================================
+         Render hero bubbles
+      =================================== */
+
       function renderBubbles() {
         const existingBubbles = bubbleSystem.querySelectorAll(".bubble-node");
+
         existingBubbles.forEach((node) => node.remove());
 
         servers.forEach((server, index) => {
           const position = getBubblePosition(index);
 
           const button = document.createElement("button");
+
           button.type = "button";
-          button.className = `bubble-node ${index === activeIndex ? "active" : ""}`;
+
+          button.className = `bubble-node ${
+            index === activeIndex ? "active" : ""
+          }`;
+
           button.dataset.position = position;
+
           button.setAttribute("aria-label", `Select ${server.name}`);
+
           button.addEventListener("click", () => setActiveServer(index));
 
           button.innerHTML = `
-          <div class="bubble-shell" data-initials="${server.initials}">
-            <img
-              src="${server.image}"
-              alt="${server.name} Discord icon"
-              onerror="handleImageError(this)"
-            />
-          </div>
-          <span class="bubble-label">${server.name}</span>
-        `;
+              <div
+                class="bubble-shell"
+                data-initials="${server.initials}"
+              >
+                <img
+                  src="${server.image}"
+                  alt="${server.name} Discord icon"
+                  onerror="handleImageError(this)"
+                />
+              </div>
+
+              <span class="bubble-label">
+                ${server.name}
+              </span>
+            `;
 
           bubbleSystem.appendChild(button);
         });
       }
 
+      /* ===================================
+         Render channel groups
+      =================================== */
+
+      function renderChannelGroups(server) {
+        if (!server.channelGroups || !server.channelGroups.length) {
+          return "";
+        }
+
+        return `
+          <div class="channel-groups">
+            ${server.channelGroups
+              .map(
+                (group) => `
+                  <div class="channel-group">
+                    <strong class="channel-group-title">
+                      ${group.title}
+                    </strong>
+
+                    <ul>
+                      ${group.channels
+                        .map((channel) => `<li>${channel}</li>`)
+                        .join("")}
+                    </ul>
+                  </div>
+                `,
+              )
+              .join("")}
+          </div>
+        `;
+      }
+
+      /* ===================================
+         Render optional server rules
+      =================================== */
+
+      function renderRules(server) {
+        if (!server.rules || !server.rules.length) {
+          return "";
+        }
+
+        return `
+          <details>
+            <summary>
+              Server Rules
+            </summary>
+
+            <div class="rules-content">
+              ${server.rules
+                .map(
+                  (rule, index) => `
+                    <div class="rule-block">
+                      <strong>
+                        ${index + 1}.
+                        ${rule.title}
+                      </strong>
+
+                      <ul>
+                        ${rule.points
+                          .map((point) => `<li>${point}</li>`)
+                          .join("")}
+                      </ul>
+                    </div>
+                  `,
+                )
+                .join("")}
+
+              ${
+                server.moderation
+                  ? `
+                    <div class="rule-block">
+                      <strong class="policy-heading">
+                        <span>⚠️</span>
+                        <span>
+                          ${server.moderation.title}
+                        </span>
+                      </strong>
+
+                      <ul>
+                        ${server.moderation.points
+                          .map((point) => `<li>${point}</li>`)
+                          .join("")}
+                      </ul>
+                    </div>
+                  `
+                  : ""
+              }
+
+              ${
+                server.values
+                  ? `
+                    <div class="rule-block">
+                      <strong class="policy-heading">
+                        <span>✨</span>
+                        <span>
+                          ${server.values.title}
+                        </span>
+                      </strong>
+
+                      <ul>
+                        ${server.values.points
+                          .map((point) => `<li>${point}</li>`)
+                          .join("")}
+                      </ul>
+                    </div>
+                  `
+                  : ""
+              }
+            </div>
+          </details>
+        `;
+      }
+
+      /* ===================================
+         Render server cards
+      =================================== */
+
       function renderCards() {
         serverGrid.innerHTML = servers
           .map(
             (server) => `
-        <article class="server-card" style="--card-soft: ${server.accent}">
-          <div class="server-top">
-            <div class="server-logo" data-initials="${server.initials}">
-              <img
-                src="${server.image}"
-                alt="${server.name} icon"
-                onerror="handleImageError(this)"
-              />
-            </div>
+                <article
+                  class="server-card"
+                  style="--card-soft: ${server.accent}"
+                >
+                  <div class="server-top">
+                    <div
+                      class="server-logo"
+                      data-initials="${server.initials}"
+                    >
+                      <img
+                        src="${server.image}"
+                        alt="${server.name} icon"
+                        onerror="handleImageError(this)"
+                      />
+                    </div>
 
-            <div>
-              <h3>${server.name}</h3>
-              <div class="category">${server.category}</div>
-            </div>
-          </div>
+                    <div>
+                      <h3>
+                        ${server.name}
+                      </h3>
 
-          <div class="tag-row">
-            ${server.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
-          </div>
+                      <div class="category">
+                        ${server.category}
+                      </div>
+                    </div>
+                  </div>
 
-          <details open>
-            <summary>About</summary>
-            <p>${server.about}</p>
-          </details>
+                  <div class="tag-row">
+                    ${server.tags
+                      .map((tag) => `<span class="tag">${tag}</span>`)
+                      .join("")}
+                  </div>
 
-          <details>
-            <summary>Why join?</summary>
-            <p>${server.motivation}</p>
-          </details>
+                  <details open>
+                    <summary>
+                      About
+                    </summary>
 
-          <details>
-            <summary>Channels</summary>
-            <ul>
-              ${server.channels.map((channel) => `<li>${channel}</li>`).join("")}
-            </ul>
-          </details>
+                    <p>
+                      ${server.about}
+                    </p>
+                  </details>
 
-          <div class="card-actions">
-            <a
-              class="button button-primary"
-              href="${server.invite}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join Discord
-            </a>
-          </div>
-        </article>
-      `,
+                  <details>
+                    <summary>
+                      Why join?
+                    </summary>
+
+                    <p>
+                      ${server.motivation}
+                    </p>
+                  </details>
+
+                  <details>
+                    <summary>
+                      Channels
+                    </summary>
+
+                    ${renderChannelGroups(server)}
+                  </details>
+
+                  ${renderRules(server)}
+
+                  <div class="card-actions">
+                    <a
+                      class="button button-primary"
+                      href="${server.invite}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Join ${server.name} on Discord"
+                    >
+                      Join Discord
+                    </a>
+                  </div>
+                </article>
+              `,
           )
           .join("");
       }
+
+      /* ===================================
+         Initialize page
+      =================================== */
 
       applyTheme(
         localStorage.getItem("ucmHubDiscordTheme") === "dark"
           ? "dark"
           : "light",
       );
+
       renderCards();
+
+      /*
+       * Central UCM is first in the array,
+       * so index 0 makes it the initial
+       * featured Discord server.
+       */
       setActiveServer(0);
     </script>
   </body>
