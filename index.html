@@ -13,7 +13,7 @@
 
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
-    <link rel="canonical" href="https://ucmercedhub.com/discord-community" />
+    <link rel="canonical" href="https://discord.ucmercedhub.com/" />
 
     <!-- UCM Hub favicon -->
     <link
@@ -36,10 +36,7 @@
 
     <meta property="og:type" content="website" />
 
-    <meta
-      property="og:url"
-      content="https://ucmercedhub.com/discord-community"
-    />
+    <meta property="og:url" content="https://discord.ucmercedhub.com/" />
 
     <meta property="og:site_name" content="UC Merced Hub" />
 
@@ -69,42 +66,17 @@
     <meta name="theme-color" content="#ffffff" id="themeColorMeta" />
 
     <!-- Structured data -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="discordStructuredData">
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "UC Merced Discord Communities",
-        "url": "https://ucmercedhub.com/discord-community",
+        "url": "https://discord.ucmercedhub.com/",
         "description": "A UCM Hub directory of UC Merced Discord communities for classes, majors, campus maps, events, student life, clubs, and the broader Bobcat community.",
         "mainEntity": {
           "@type": "ItemList",
           "name": "UC Merced Discord Communities",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Central UCM",
-              "url": "https://discord.gg/JdRgayFtpQ"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "STEM Majors",
-              "url": "https://discord.gg/KzbH9tgdC"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Map UC Merced",
-              "url": "https://discord.gg/uQtKghg2g"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Merced Community",
-              "url": "https://discord.gg/NVGjpuS5"
-            }
-          ]
+          "itemListElement": []
         }
       }
     </script>
@@ -1388,6 +1360,21 @@
           transition: none;
         }
       }
+      /* Dynamic directory loading, error, and empty states */
+      .directory-status {
+        grid-column: 1 / -1;
+        padding: 24px;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        color: var(--muted);
+        background: var(--surface);
+      }
+      .directory-status .button {
+        margin-top: 16px;
+      }
+      .button[hidden] {
+        display: none !important;
+      }
     </style>
   </head>
 
@@ -1454,18 +1441,17 @@
               community.
             </p>
 
-            <h2 class="active-name" id="activeName">Central UCM</h2>
+            <h2 class="active-name" id="activeName">Loading communities…</h2>
 
             <p class="active-summary" id="activeSummary">
-              A general UC Merced community for campus conversation, help,
-              meetups, clubs, majors, gaming, and student life.
+              Retrieving the latest Discord server listings.
             </p>
 
             <div class="actions">
               <a
                 class="button button-primary"
                 id="activeJoin"
-                href="https://discord.gg/JdRgayFtpQ"
+                hidden
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -1514,7 +1500,7 @@
           </div>
         </div>
 
-        <div class="server-grid" id="serverGrid"></div>
+        <div class="server-grid" id="serverGrid" aria-live="polite"></div>
       </section>
 
       <!-- ================================
@@ -1637,682 +1623,432 @@
 
     <script>
       /* ===================================
-         Server data
-      =================================== */
-
-      const servers = [
-        {
-          id: 1,
-
-          name: "Central UCM",
-
-          category: "Campus Community",
-
-          image:
-            "https://cdn.discordapp.com/icons/1502200043925671956/c481deb307d3f8eb4ca152149ecbc0dc.webp?size=160&quality=lossless",
-
-          initials: "UCM",
-
-          invite: "https://discord.gg/JdRgayFtpQ",
-
-          short:
-            "A general UC Merced community for campus conversation, help, meetups, clubs, majors, gaming, and student life.",
-
-          tags: ["Community", "Student Life", "Majors", "Meetups"],
-
-          accent: "var(--pink-soft)",
-
-          glow: "rgba(255, 120, 180, 0.22)",
-
-          about:
-            "A broad UC Merced community Discord for students to talk, ask for help, meet other Bobcats, share campus life, find clubs, and connect through major-specific and general channels.",
-
-          motivation:
-            "Central UCM provides a general-purpose campus community where students can find help, make connections, organize meetups, share photos, discuss majors, game together, and participate in everyday campus conversation.",
-
-          channelGroups: [
-            {
-              title: "Information",
-
-              channels: [
-                "#announcements",
-                "#help-channel",
-                "#tutorial",
-                "#roles",
-              ],
-            },
-
-            {
-              title: "General Text Channels",
-
-              channels: [
-                "#general",
-                "#daily-cats-n-dogs",
-                "#ucm-help",
-                "#photos-images",
-                "#gaming",
-                "#server-suggestions",
-                "#meetups",
-                "#introductions",
-                "#dorm-and-pay-food-pics",
-              ],
-            },
-
-            {
-              title: "Voice Channels",
-
-              channels: ["Lounge", "gaming", "study group / hw help"],
-            },
-
-            {
-              title: "Clubs",
-
-              channels: ["#club-or-event-advertisement"],
-            },
-
-            {
-              title: "School / Major Specific",
-
-              channels: [
-                "#business",
-                "#ssha",
-                "#engineering",
-                "#natural-sciences",
-              ],
-            },
-          ],
-
-          rules: [
-            {
-              title: "No Harassment, Hate Speech, or Bigotry",
-
-              points: [
-                "Treat all members with respect. No harassment, witch-hunting, sexism, racism, or hate speech.",
-
-                "This server explicitly protects and welcomes the LGBTQIA+ community.",
-
-                "Homophobia, transphobia, deadnaming, or targeted political harassment will not be tolerated.",
-              ],
-            },
-
-            {
-              title: "No Severe Violence, Weapons, or Self-Harm",
-
-              points: [
-                "Keep real-world violence completely out of general chat channels.",
-
-                "Do not discuss, joke about, or glorify weapons, bombs, stabbings, or gang violence.",
-
-                "Sharing graphic images, gore, or discussing self-harm is strictly prohibited.",
-
-                "Serious issues that students, staff, or alumni have faced may still be discussed when handled seriously rather than as casual general-chat material.",
-              ],
-            },
-
-            {
-              title: "No Spam or Self-Promotion",
-
-              points: [
-                "Promotion may be allowed, but server staff want to vet it first and ensure it is appropriate.",
-
-                "No unauthorized server invites, advertisements, or promotional links.",
-
-                "Do not send unsolicited DMs to fellow server members. This is intended primarily to prevent unwanted messages rather than interfere with normal conversations between people who know each other.",
-              ],
-            },
-
-            {
-              title: "Help Keep the Vibe Safe",
-
-              points: [
-                "Let staff know immediately if you see rule-breaking content.",
-
-                "Report anything that makes you or others feel unsafe or unwelcome.",
-              ],
-            },
-          ],
-
-          moderation: {
-            title: "Infraction & Vibe-Check Policy",
-
-            points: [
-              "Vibe-Based Moderation — The server favors maintaining a relaxed, safe environment instead of immediately handing out permanent bans.",
-
-              "Step 1: Verbal Warning — If someone crosses a line, moderators give a direct warning in chat and ask them to pivot the topic.",
-
-              "Step 2: 1-Minute Timeout — Ignoring the warning or doubling down may result in a quick one-minute timeout.",
-
-              "Step 3: Escalation — Extreme violations such as targeted hate speech or explicit threats can bypass earlier steps and lead directly to kicks or permanent bans.",
-            ],
-          },
-
-          values: {
-            title: "The UC Merced Supremacy Clause",
-
-            points: [
-              "Be the Change — As the newest UC campus, students have an opportunity to help define what the community becomes.",
-
-              "Keep it Positive — Push for progress, support one another, and send a positive message to the wider UC system and beyond.",
-
-              "Bobcat Pride — Bring good energy, build real community, and help shape a Bobcat culture students can be proud of.",
-            ],
-          },
-        },
-
-        {
-          id: 2,
-
-          name: "STEM Majors",
-
-          category: "Academic",
-
-          image: "./images/discord_server_image_1.png",
-
-          initials: "STEM",
-
-          invite: "https://discord.gg/KzbH9tgdC",
-
-          short:
-            "Class channels for CSE, Engineering, Physics, Math, and STEM study support.",
-
-          tags: ["CSE", "Engineering", "Physics", "Math"],
-
-          accent: "var(--blue-soft)",
-
-          glow: "rgba(0, 94, 184, 0.24)",
-
-          about:
-            "A large UC Merced STEM Discord with class channels for CSE, Engineering, Physics, Math, and related STEM areas.",
-
-          motivation:
-            "A central place to find course updates, ask questions, meet classmates, and coordinate study sessions.",
-
-          channelGroups: [
-            {
-              title: "Academic",
-
-              channels: [
-                "CSE channels",
-                "Engineering channels",
-                "Physics channels",
-                "Math channels",
-              ],
-            },
-
-            {
-              title: "Community",
-
-              channels: ["Study sessions", "Course resources"],
-            },
-          ],
-        },
-
-        {
-          id: 3,
-
-          name: "Map UC Merced",
-
-          category: "Campus Life",
-
-          image: "./images/discord_server_image_2.png",
-
-          initials: "MAP",
-
-          invite: "https://discord.gg/uQtKghg2g",
-
-          short:
-            "Campus maps, events, activities, app updates, and UCM Hub community feedback.",
-
-          tags: ["Maps", "Events", "Campus", "UCM Hub"],
-
-          accent: "var(--gold-soft)",
-
-          glow: "rgba(255, 191, 0, 0.26)",
-
-          about:
-            "A UCM Hub-connected Discord for campus discovery through maps, events, activities, and student-facing tools.",
-
-          motivation:
-            "Help students understand what is happening around campus through interactive maps, mobile and web tools, and shared campus information.",
-
-          channelGroups: [
-            {
-              title: "Campus",
-
-              channels: [
-                "Map updates",
-                "Campus events",
-                "Campus discovery",
-                "Announcements",
-              ],
-            },
-
-            {
-              title: "Projects",
-
-              channels: ["Student feedback", "Map projects"],
-            },
-          ],
-        },
-
-        {
-          id: 4,
-
-          name: "Merced Community",
-
-          category: "Local Community",
-
-          image: "./images/discord_server_image_3.png",
-
-          initials: "MERCED",
-
-          invite: "https://discord.gg/NVGjpuS5",
-
-          short:
-            "A broader Merced community space for local conversation, questions, and recommendations.",
-
-          tags: ["Merced", "Local", "Community", "General"],
-
-          accent: "var(--purple-soft)",
-
-          glow: "rgba(120, 90, 255, 0.22)",
-
-          about:
-            "A general Merced Discord for local discussion, recommendations, questions, events, and community connection.",
-
-          motivation:
-            "Help UC Merced students and locals connect with the broader Merced area beyond campus.",
-
-          channelGroups: [
-            {
-              title: "Community",
-
-              channels: ["General chat", "Questions", "Introductions"],
-            },
-
-            {
-              title: "Local",
-
-              channels: ["Recommendations", "Events", "Housing"],
-            },
-          ],
-        },
-      ];
-
-      /* ===================================
-         DOM references
-      =================================== */
+         Discord directory API
+         =================================== */
+      const DISCORD_API_URL = "https://api.ucmercedhub.com/discordServers";
+      let servers = [];
+      let activeIndex = 0;
 
       const root = document.documentElement;
-
       const themeToggle = document.getElementById("themeToggle");
-
       const themeIcon = document.getElementById("themeIcon");
-
       const themeLabel = document.getElementById("themeLabel");
-
       const themeColorMeta = document.getElementById("themeColorMeta");
-
       const showcase = document.getElementById("showcase");
-
       const bubbleSystem = document.getElementById("bubbleSystem");
-
       const activeName = document.getElementById("activeName");
-
       const activeSummary = document.getElementById("activeSummary");
-
       const activeJoin = document.getElementById("activeJoin");
-
       const serverGrid = document.getElementById("serverGrid");
-
-      /* ===================================
-         Initial state
-      =================================== */
-
-      let activeIndex = 0;
+      const structuredData = document.getElementById("discordStructuredData");
 
       document.getElementById("year").textContent = new Date().getFullYear();
 
       /* ===================================
-         Theme
-      =================================== */
-
+         Theme (unchanged behavior)
+         =================================== */
       function applyTheme(theme) {
         root.setAttribute("data-theme", theme);
-
-        localStorage.setItem("ucmHubDiscordTheme", theme);
-
+        try {
+          localStorage.setItem("ucmHubDiscordTheme", theme);
+        } catch (_) {}
         const isDark = theme === "dark";
-
         themeIcon.textContent = isDark ? "☀️" : "🌙";
-
         themeLabel.textContent = isDark ? "Light" : "Dark";
-
         themeColorMeta.setAttribute("content", isDark ? "#07111f" : "#ffffff");
       }
 
       themeToggle.addEventListener("click", () => {
         const current = root.getAttribute("data-theme") || "light";
-
         applyTheme(current === "dark" ? "light" : "dark");
       });
 
       /* ===================================
-         Image fallback
-      =================================== */
+         Treat editable API content as untrusted
+         =================================== */
+      function escapeHtml(value) {
+        return String(value ?? "").replace(
+          /[&<>"']/g,
+          (char) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[char],
+        );
+      }
 
-      function handleImageError(imageElement) {
-        imageElement.style.display = "none";
+      function safeUrl(value, { httpsOnly = false } = {}) {
+        if (typeof value !== "string" || !value.trim()) return "";
+        try {
+          const url = new URL(value, document.baseURI);
+          if (
+            httpsOnly
+              ? url.protocol !== "https:"
+              : !["http:", "https:"].includes(url.protocol)
+          ) {
+            return "";
+          }
+          return url.href;
+        } catch (_) {
+          return "";
+        }
+      }
 
-        imageElement.parentElement.classList.add("missing");
+      // CSS values are edited via the API. Restrict them to simple color formats.
+      function safeColor(value, fallback) {
+        if (typeof value !== "string") return fallback;
+        const color = value.trim();
+        if (
+          /^var\(--(?:pink-soft|purple-soft|blue-soft|gold-soft|green-soft|surface-soft)\)$/.test(
+            color,
+          ) ||
+          /^#[0-9a-f]{3,8}$/i.test(color) ||
+          /^(?:rgb|rgba|hsl|hsla)\([0-9\s.,%+\-]+\)$/i.test(color)
+        ) {
+          return color;
+        }
+        return fallback;
+      }
+
+      const str = (value) => (typeof value === "string" ? value : "");
+      const textList = (value) =>
+        Array.isArray(value) ? value.filter((x) => typeof x === "string") : [];
+
+      function normalizeServer(raw) {
+        if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
+        const name = str(raw.name).trim();
+        const invite = safeUrl(raw.invite, { httpsOnly: true });
+        if (!name || !invite) return null;
+
+        const titledList = (value) =>
+          Array.isArray(value)
+            ? value
+                .filter((x) => x && typeof x === "object")
+                .map((x) => ({
+                  title: str(x.title),
+                  points: textList(x.points),
+                }))
+            : [];
+        const optionalPolicy = (value) =>
+          value && typeof value === "object" && !Array.isArray(value)
+            ? { title: str(value.title), points: textList(value.points) }
+            : null;
+
+        return {
+          id: raw.id,
+          position: Number.isFinite(Number(raw.position))
+            ? Number(raw.position)
+            : Number.MAX_SAFE_INTEGER,
+          name,
+          category: str(raw.category),
+          image: safeUrl(raw.image),
+          initials: str(raw.initials),
+          invite,
+          short: str(raw.short),
+          tags: textList(raw.tags),
+          accent: safeColor(raw.accent, "var(--blue-soft)"),
+          glow: safeColor(raw.glow, "rgba(0, 94, 184, 0.22)"),
+          about: str(raw.about),
+          motivation: str(raw.motivation),
+          channelGroups: Array.isArray(raw.channelGroups)
+            ? raw.channelGroups
+                .filter((g) => g && typeof g === "object")
+                .map((g) => ({
+                  title: str(g.title),
+                  channels: textList(g.channels),
+                }))
+            : [],
+          rules: titledList(raw.rules),
+          moderation: optionalPolicy(raw.moderation),
+          values: optionalPolicy(raw.values),
+        };
       }
 
       /* ===================================
-         Bubble positioning
-      =================================== */
+         Hero / bubble interactions
+         =================================== */
+      function setHeroMessage(title, description) {
+        activeName.textContent = title;
+        activeSummary.textContent = description;
+        activeJoin.hidden = true;
+        activeJoin.removeAttribute("href");
+        activeJoin.removeAttribute("aria-label");
+      }
+
+      function handleImageError(imageElement) {
+        imageElement.hidden = true;
+        imageElement.style.display = "none";
+        imageElement.parentElement?.classList.add("missing");
+      }
+
+      // Capture image load errors, without inline event-handler HTML.
+      [bubbleSystem, serverGrid].forEach((container) => {
+        container.addEventListener(
+          "error",
+          (event) => {
+            if (event.target.matches("img[data-discord-image]")) {
+              handleImageError(event.target);
+            }
+          },
+          true,
+        );
+      });
 
       function getBubblePosition(index) {
-        if (index === activeIndex) {
-          return "center";
-        }
-
+        if (index === activeIndex) return "center";
         const positions = ["left", "right", "bottom", "top"];
-
         const shifted = (index - activeIndex + servers.length) % servers.length;
-
         return positions[shifted - 1] || "bottom";
       }
 
-      /* ===================================
-         Set active server
-      =================================== */
-
       function setActiveServer(index) {
+        if (!servers[index]) return;
         activeIndex = index;
-
-        const server = servers[activeIndex];
-
+        const server = servers[index];
         activeName.textContent = server.name;
-
         activeSummary.textContent = server.short;
-
         activeJoin.href = server.invite;
-
+        activeJoin.hidden = false;
         activeJoin.setAttribute("aria-label", `Join ${server.name} on Discord`);
-
         showcase.style.setProperty("--active-soft", server.accent);
-
         showcase.style.setProperty("--active-glow", server.glow);
-
         renderBubbles();
       }
 
-      /* ===================================
-         Render hero bubbles
-      =================================== */
-
       function renderBubbles() {
-        const existingBubbles = bubbleSystem.querySelectorAll(".bubble-node");
-
-        existingBubbles.forEach((node) => node.remove());
+        bubbleSystem
+          .querySelectorAll(".bubble-node")
+          .forEach((node) => node.remove());
 
         servers.forEach((server, index) => {
-          const position = getBubblePosition(index);
-
           const button = document.createElement("button");
-
           button.type = "button";
-
-          button.className = `bubble-node ${
-            index === activeIndex ? "active" : ""
-          }`;
-
-          button.dataset.position = position;
-
+          button.className = `bubble-node ${index === activeIndex ? "active" : ""}`;
+          button.dataset.position = getBubblePosition(index);
           button.setAttribute("aria-label", `Select ${server.name}`);
-
           button.addEventListener("click", () => setActiveServer(index));
 
           button.innerHTML = `
-              <div
-                class="bubble-shell"
-                data-initials="${server.initials}"
-              >
-                <img
-                  src="${server.image}"
-                  alt="${server.name} Discord icon"
-                  onerror="handleImageError(this)"
-                />
-              </div>
-
-              <span class="bubble-label">
-                ${server.name}
-              </span>
-            `;
-
+            <div class="bubble-shell${server.image ? "" : " missing"}"
+                 data-initials="${escapeHtml(server.initials)}">
+              ${
+                server.image
+                  ? `<img data-discord-image src="${escapeHtml(server.image)}"
+                   alt="${escapeHtml(server.name)} Discord icon" />`
+                  : ""
+              }
+            </div>
+            <span class="bubble-label">${escapeHtml(server.name)}</span>
+          `;
           bubbleSystem.appendChild(button);
         });
       }
 
       /* ===================================
-         Render channel groups
-      =================================== */
-
+         Server detail cards
+         =================================== */
       function renderChannelGroups(server) {
-        if (!server.channelGroups || !server.channelGroups.length) {
-          return "";
-        }
-
+        if (!server.channelGroups.length) return "";
         return `
           <div class="channel-groups">
             ${server.channelGroups
               .map(
                 (group) => `
-                  <div class="channel-group">
-                    <strong class="channel-group-title">
-                      ${group.title}
-                    </strong>
-
-                    <ul>
-                      ${group.channels
-                        .map((channel) => `<li>${channel}</li>`)
-                        .join("")}
-                    </ul>
-                  </div>
-                `,
+              <div class="channel-group">
+                <strong class="channel-group-title">${escapeHtml(group.title)}</strong>
+                <ul>${group.channels.map((channel) => `<li>${escapeHtml(channel)}</li>`).join("")}</ul>
+              </div>
+            `,
               )
               .join("")}
-          </div>
-        `;
+          </div>`;
       }
-
-      /* ===================================
-         Render optional server rules
-      =================================== */
 
       function renderRules(server) {
-        if (!server.rules || !server.rules.length) {
+        if (!server.rules.length && !server.moderation && !server.values)
           return "";
-        }
+        const ruleBlocks = server.rules
+          .map(
+            (rule, index) => `
+          <div class="rule-block">
+            <strong>${index + 1}. ${escapeHtml(rule.title)}</strong>
+            <ul>${rule.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>
+          </div>`,
+          )
+          .join("");
 
-        return `
-          <details>
-            <summary>
-              Server Rules
-            </summary>
+        const policyBlock = (policy, icon) =>
+          policy
+            ? `
+          <div class="rule-block">
+            <strong class="policy-heading"><span>${icon}</span><span>${escapeHtml(policy.title)}</span></strong>
+            <ul>${policy.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>
+          </div>`
+            : "";
 
-            <div class="rules-content">
-              ${server.rules
-                .map(
-                  (rule, index) => `
-                    <div class="rule-block">
-                      <strong>
-                        ${index + 1}.
-                        ${rule.title}
-                      </strong>
-
-                      <ul>
-                        ${rule.points
-                          .map((point) => `<li>${point}</li>`)
-                          .join("")}
-                      </ul>
-                    </div>
-                  `,
-                )
-                .join("")}
-
-              ${
-                server.moderation
-                  ? `
-                    <div class="rule-block">
-                      <strong class="policy-heading">
-                        <span>⚠️</span>
-                        <span>
-                          ${server.moderation.title}
-                        </span>
-                      </strong>
-
-                      <ul>
-                        ${server.moderation.points
-                          .map((point) => `<li>${point}</li>`)
-                          .join("")}
-                      </ul>
-                    </div>
-                  `
-                  : ""
-              }
-
-              ${
-                server.values
-                  ? `
-                    <div class="rule-block">
-                      <strong class="policy-heading">
-                        <span>✨</span>
-                        <span>
-                          ${server.values.title}
-                        </span>
-                      </strong>
-
-                      <ul>
-                        ${server.values.points
-                          .map((point) => `<li>${point}</li>`)
-                          .join("")}
-                      </ul>
-                    </div>
-                  `
-                  : ""
-              }
-            </div>
-          </details>
-        `;
+        return `<details><summary>Server Rules</summary><div class="rules-content">
+          ${ruleBlocks}
+          ${policyBlock(server.moderation, "⚠️")}
+          ${policyBlock(server.values, "✨")}
+        </div></details>`;
       }
-
-      /* ===================================
-         Render server cards
-      =================================== */
 
       function renderCards() {
         serverGrid.innerHTML = servers
           .map(
             (server) => `
-                <article
-                  class="server-card"
-                  style="--card-soft: ${server.accent}"
-                >
-                  <div class="server-top">
-                    <div
-                      class="server-logo"
-                      data-initials="${server.initials}"
-                    >
-                      <img
-                        src="${server.image}"
-                        alt="${server.name} icon"
-                        onerror="handleImageError(this)"
-                      />
-                    </div>
-
-                    <div>
-                      <h3>
-                        ${server.name}
-                      </h3>
-
-                      <div class="category">
-                        ${server.category}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="tag-row">
-                    ${server.tags
-                      .map((tag) => `<span class="tag">${tag}</span>`)
-                      .join("")}
-                  </div>
-
-                  <details open>
-                    <summary>
-                      About
-                    </summary>
-
-                    <p>
-                      ${server.about}
-                    </p>
-                  </details>
-
-                  <details>
-                    <summary>
-                      Why join?
-                    </summary>
-
-                    <p>
-                      ${server.motivation}
-                    </p>
-                  </details>
-
-                  <details>
-                    <summary>
-                      Channels
-                    </summary>
-
-                    ${renderChannelGroups(server)}
-                  </details>
-
-                  ${renderRules(server)}
-
-                  <div class="card-actions">
-                    <a
-                      class="button button-primary"
-                      href="${server.invite}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Join ${server.name} on Discord"
-                    >
-                      Join Discord
-                    </a>
-                  </div>
-                </article>
-              `,
+          <article class="server-card" style="--card-soft: ${escapeHtml(server.accent)}">
+            <div class="server-top">
+              <div class="server-logo${server.image ? "" : " missing"}"
+                   data-initials="${escapeHtml(server.initials)}">
+                ${
+                  server.image
+                    ? `<img data-discord-image src="${escapeHtml(server.image)}"
+                  alt="${escapeHtml(server.name)} icon" />`
+                    : ""
+                }
+              </div>
+              <div>
+                <h3>${escapeHtml(server.name)}</h3>
+                <div class="category">${escapeHtml(server.category)}</div>
+              </div>
+            </div>
+            <div class="tag-row">
+              ${server.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
+            </div>
+            <details open><summary>About</summary><p>${escapeHtml(server.about)}</p></details>
+            <details><summary>Why join?</summary><p>${escapeHtml(server.motivation)}</p></details>
+            <details><summary>Channels</summary>${renderChannelGroups(server)}</details>
+            ${renderRules(server)}
+            <div class="card-actions">
+              <a class="button button-primary" href="${escapeHtml(server.invite)}"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Join ${escapeHtml(server.name)} on Discord">
+                 Join Discord
+              </a>
+            </div>
+          </article>
+        `,
           )
           .join("");
       }
 
       /* ===================================
-         Initialize page
-      =================================== */
+         Live data + structured search metadata
+         =================================== */
+      function updateStructuredData() {
+        if (!structuredData) return;
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "UC Merced Discord Communities",
+          url: "https://discord.ucmercedhub.com/",
+          description:
+            "A UCM Hub directory of UC Merced Discord communities for classes, majors, campus maps, events, student life, clubs, and the broader Bobcat community.",
+          mainEntity: {
+            "@type": "ItemList",
+            name: "UC Merced Discord Communities",
+            itemListElement: servers.map((server, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: server.name,
+              url: server.invite,
+            })),
+          },
+        };
+        // Escape angle brackets so server names cannot terminate JSON-LD markup.
+        structuredData.textContent = JSON.stringify(schema).replace(
+          /</g,
+          "\\u003c",
+        );
+      }
 
-      applyTheme(
-        localStorage.getItem("ucmHubDiscordTheme") === "dark"
-          ? "dark"
-          : "light",
-      );
+      function showDirectoryStatus(message, isError = false) {
+        const status = document.createElement("div");
+        status.className = "directory-status";
+        status.setAttribute("role", isError ? "alert" : "status");
+        const paragraph = document.createElement("p");
+        paragraph.textContent = message;
+        status.appendChild(paragraph);
+        if (isError) {
+          const retry = document.createElement("button");
+          retry.className = "button button-secondary";
+          retry.type = "button";
+          retry.textContent = "Try again";
+          retry.addEventListener("click", loadServers);
+          status.appendChild(retry);
+        }
+        serverGrid.replaceChildren(status);
+      }
 
-      renderCards();
+      async function loadServers() {
+        setHeroMessage(
+          "Loading communities…",
+          "Retrieving the latest Discord server listings.",
+        );
+        bubbleSystem
+          .querySelectorAll(".bubble-node")
+          .forEach((node) => node.remove());
+        showDirectoryStatus("Loading Discord communities…");
+        serverGrid.setAttribute("aria-busy", "true");
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 12000);
+        try {
+          const response = await fetch(DISCORD_API_URL, {
+            method: "GET",
+            headers: { Accept: "application/json" },
+            cache: "no-store",
+            signal: controller.signal,
+          });
+          if (!response.ok)
+            throw new Error(`Discord API returned HTTP ${response.status}`);
+          const data = await response.json();
+          if (!Array.isArray(data))
+            throw new Error("Discord API did not return an array");
 
-      /*
-       * Central UCM is first in the array,
-       * so index 0 makes it the initial
-       * featured Discord server.
-       */
-      setActiveServer(0);
+          servers = data.map(normalizeServer).filter(Boolean);
+          servers.sort((a, b) => a.position - b.position);
+          updateStructuredData();
+
+          if (!servers.length) {
+            setHeroMessage(
+              "No communities listed",
+              "Check back for new UC Merced Discord servers.",
+            );
+            showDirectoryStatus("No Discord communities are listed yet.");
+            return;
+          }
+
+          renderCards();
+          setActiveServer(0);
+        } catch (error) {
+          console.error("Failed to load Discord servers:", error);
+          servers = [];
+          updateStructuredData();
+          setHeroMessage(
+            "Unable to load communities",
+            "The directory could not be reached right now.",
+          );
+          showDirectoryStatus(
+            "We couldn't load the Discord servers. Please try again.",
+            true,
+          );
+        } finally {
+          clearTimeout(timeout);
+          serverGrid.removeAttribute("aria-busy");
+        }
+      }
+
+      let savedTheme = "light";
+      try {
+        if (localStorage.getItem("ucmHubDiscordTheme") === "dark")
+          savedTheme = "dark";
+      } catch (_) {}
+      applyTheme(savedTheme);
+      loadServers();
     </script>
   </body>
 </html>
